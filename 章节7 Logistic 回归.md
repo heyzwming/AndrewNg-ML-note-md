@@ -35,6 +35,34 @@ h_θ(x) = 7，的意义是 对于一个特征为x的患者y=1的概率是0.7，�
 
 ## 课时44  决策界限(Decision Boundary)  14:49
 
+决策边界的概念，能帮助我们更好的理解logistic回归的假设函数在计算什么。
+事实上这个假设函数计算的是 在特征x和参数θ的条件下y=1的估计概率。
+
+如果这个概率>=0.5 我们预测y = 1
+否则 y = 0
+
+看到这个图像我们可以看到如果z >= 0 那么g(z) >= 0.5
+即当θ^T*x >= 0.我们的假设函数就会预测y = 1
+
+![44.1](http://m.qpic.cn/psb?/V12umJF70r2BEK/3OX1YKgf9ptwMk08udNS6CluSzOiByEQg73oUtXy4wM!/b/dD0BAAAAAAAA&bo=IQRgAgAAAAARF2c!&rf=viewer_4)
+
+为了拟合下图中的数据集，我们假设有这么一个参数向量θ = [-3 1 1]^T 来更深入理解假设函数何时为1何时为0
+
+区别开y = 1 和y = 0范围的线就叫决策边界 
+
+![44.2](http://m.qpic.cn/psb?/V12umJF70r2BEK/Jfu1Kz5VNOpDiVTf7wC5EX9H1xwM63mS2WGxSIpPK6I!/b/dGwBAAAAAAAA&bo=PARyAgAAAAARF2g!&rf=viewer_4)
+
+接下来是一个更加复杂的例子
+我们添加额外的特征量x1^2 和x2^2
+我们选择参数向量θ为[-1 0 0 1 1]
+通过更复杂的多项式，我们可以得到更复杂的决定边界，决定边界不是训练集的属性，而是假设本身及其参数的属性，只要给定了参数向量θ，圆形的决定边界就确定了。
+我们用训练集来拟合参数θ
+
+![44.3](http://m.qpic.cn/psb?/V12umJF70r2BEK/YTJXADnKrdjFC.FnxQTrT8bBmYOAivJcCJubimHT8FA!/b/dIUBAAAAAAAA&bo=KwRWAgAAAAARF1s!&rf=viewer_4)
+
+最后再来看下更复杂 更高阶多项式的情况，这会让你得到非常复杂的决策边界。
+
+![44.4](http://m.qpic.cn/psb?/V12umJF70r2BEK/2gucMaUnUE.YriIA3f3sCs*NOCrjplzruwvFuaQVKMI!/b/dN4AAAAAAAAA&bo=JgRMAgAAAAARB1w!&rf=viewer_4)
 
 
 
