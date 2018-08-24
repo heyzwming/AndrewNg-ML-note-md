@@ -20,7 +20,17 @@ Logistic 回归(Logistic Regression)
 我们要使用一种新的算法叫做Logistac Regression(应用于分类问题)，特点在于算法的输出或者说预测值一直介于0和1之间
 
 ## 课时43  假设陈述(Hypothesis Representation)  07:24
+logistic回归 中假设函数的表示方法
 
+我们要做的就是用参数θ拟合我们的数据，拿到一个训练集，我们需要给参数θ选定一个值，假设会帮我们做出预测。
+
+![43.1](http://m.qpic.cn/psb?/V12umJF70r2BEK/Y42BroZryYy.ZS1xFOsi23CI.rYVcdZQ9v48F*QKrKU!/b/dPQAAAAAAAAA&bo=RwRsAgAAAAARBx0!&rf=viewer_4)
+
+h_θ(x) = 7，的意义是 对于一个特征为x的患者y=1的概率是0.7，用数学来表示，h_θ(x)是 在特征值x(此处是肿瘤的大小)和参数θ的条件下，y=1的概率p。
+假设函数表达式
+定义逻辑回归的假设函数的数学公式
+
+![43.2](http://m.qpic.cn/psb?/V12umJF70r2BEK/LBlNySrvssa1rM9aUzPi182*dfMdxa4ETPIXry6fEj0!/b/dN8AAAAAAAAA&bo=NgRxAgAAAAARB3E!&rf=viewer_4)
 
 
 ## 课时44  决策界限(Decision Boundary)  14:49
