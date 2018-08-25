@@ -1,5 +1,11 @@
 章节1 绪论：初识机器学习
 ====
+> Welcome to Machine Learning! This week, we introduce the core idea of teaching a computer to learn concepts using data—without being explicitly programmed.  
+
+> We are going to start by covering linear regression with one variable. Linear regression predicts a real-valued output based on an input value. We discuss the application of linear regression to housing price prediction, present the notion of a cost function, and introduce the gradient descent method for learning.  
+
+> We’ll also have optional lessons that provide a refresher on linear algebra concepts. Basic understanding of linear algebra is necessary for the rest of the course, especially as we begin to cover models with multiple variables. If you feel confident in your understanding of linear algebra, feel free to take a break or help other students out in the forums.   --Andrew Ng
+
 ## Introduction
 ## 前言
 
@@ -9,12 +15,12 @@
 
 > 本文的定位主要是归纳总结，以学习时的思路展开，以吴恩达教授的课程内容为主体。
 
-## 课时1  欢迎参加《机器学习》课程   06:54
+## 课时1  Welcome (欢迎参加《机器学习》课程)   06:54
 pass
 
-## 课时2  什么是机器学习？   07:14
+## 课时2  Introduction (什么是机器学习？)   07:14
 
-什么是机器学习？这个问题目前还没有明确，统一的回答。课程中列举了两种定义：
+什么是机器学习？这个问题目前还没有明确，课程中列举了两种定义：
 
 **1.Arthur Samuel提出的定义:**
 
