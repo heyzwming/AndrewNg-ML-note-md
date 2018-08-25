@@ -61,37 +61,38 @@
 # week2
 
 ## 四、Linear Regression with Multiple Variables
+---
 
 ### Environment Setup Instructions
 
 ### Multivariate Linear Regression
 
-Multiple Features
+20、Multiple Features
 
-Gradient Descent for Multiple Variables
+21、Gradient Descent for Multiple Variables
 
-Gradient Descent for Practice Ⅰ - Feature Scaling
+22、Gradient Descent for Practice Ⅰ - Feature Scaling
 
-Gradient Descent for Practice Ⅱ - Learning Rate
+23、Gradient Descent for Practice Ⅱ - Learning Rate
 
-Features and Polynomial Regression
+24、Features and Polynomial Regression
 
 
 ### Computing Parameters Analytically
 
-Normal Equation
+25、Normal Equation
 
-Normal Equation Noninvertbility
+26、Normal Equation Noninvertbility
 
 ### Submitting Programming Assignments
 
-Working on and Submitting Programming Assignments
+27、Working on and Submitting Programming Assignments
 
 ### Review
 
 
 ## 五、Octave/Matlab Tutorial
-
+---
 
 
 
@@ -100,40 +101,40 @@ Working on and Submitting Programming Assignments
 # week3
 
 ## 六、Logistic Regression
-
+---
 ### Classification and Representation
 
-Classification
+28、Classification
 
-Hypothesis Representation
+29、Hypothesis Representation
 
-Decision Boundary
+30、Decision Boundary
 
 ### Logistic Regression Model
 
-Cost Function
+31、Cost Function
 
-Simplified Cost Function and Gradient Descent
+32、Simplified Cost Function and Gradient Descent
 
-Advanced Optimization
+33、Advanced Optimization
 
 ### Multiclass Classification
 
-Multiclass Classification:One-vs-all
+34、Multiclass Classification:One-vs-all
 
 ### Review
 
 ## 七、Regularization
-
+---
 ### Solving the Problem of Overfitting
 
-The Problem of Overfitting
+35、The Problem of Overfitting
 
-Cost Function
+36、Cost Function
 
-Regularized Linear Regression
+37、Regularized Linear Regression
 
-Regularized Logistic Regression
+38、Regularized Logistic Regression
 
 ### Review
 
@@ -144,26 +145,26 @@ Regularized Logistic Regression
 # week4
 
 ## 八、Neural Networks:Representation
-
+---
 ### Motivations
 
-Non-linear Hypotheses
+39、Non-linear Hypotheses
 
-Neurons and the Brain
+40、Neurons and the Brain
 
 ### Neural Networks
 
-Model Representation Ⅰ
+41、Model Representation Ⅰ
 
-Model Representation Ⅱ
+42、Model Representation Ⅱ
 
 ### Applications
 
-Examples and Intuitions Ⅰ
+43、Examples and Intuitions Ⅰ
 
-Examples and Intuitions Ⅱ
+44、Examples and Intuitions Ⅱ
 
-Multiclass Classification
+45、Multiclass Classification
 
 
 ### Review
@@ -173,94 +174,94 @@ Multiclass Classification
 # week5
 
 ## 九、Neural Networks:Learning
-
+---
 ### Cost Function and Backpropagation
 
-Cost Function
+46、Cost Function
 
-Backpropagation Algorithm
+47、Backpropagation Algorithm
 
-Backpropagation Intuition
+48、Backpropagation Intuition
 
 ### Backpropagation in Practice
 
-Implementation Note:Unrolling Parameters
+49、Implementation Note:Unrolling Parameters
 
-Gradient Checking
+50、Gradient Checking
 
-Random Initialization
+51、Random Initialization
 
-Putting It Together
+52、Putting It Together
 
 ### Application of Neural Networks
 
-Autonomous Driving
+53、Autonomous Driving
 
 ### Review
 
 # week6
 
 ## 十、Advice for Applying Machine Learning
-
+---
 ### Evaluating a Learning Algorithm
 
-Deciding What to Try Next
+54、Deciding What to Try Next
 
-Evaluating a Hypothesis
+55、Evaluating a Hypothesis
 
-Model Selection and Train/Validation/Test Sets
+56、Model Selection and Train/Validation/Test Sets
 
 ### Bias vs. Variance
 
-Diagnosing Bias vs. Variance
+57、Diagnosing Bias vs. Variance
 
-Regularization and Bias/Variance
+58、Regularization and Bias/Variance
 
-Learning Curves
+59、Learning Curves
 
-Deciding What to Do Next Revisited
+60、Deciding What to Do Next Revisited
 
 ### Review
 
 
 ## 十一、Machine Learning System Design
-
+---
 ### Building a Spam Classifier
 
-Prioritizing What to Work On
+61、Prioritizing What to Work On
 
-Error Analysis
+62、Error Analysis
 
 ### Handing Skewed Data
 
-Error Metrics for Skewed Classes
+63、Error Metrics for Skewed Classes
 
-Trading Off Precision and Recall
+64、Trading Off Precision and Recall
 
 ### Using Large Data Sets
 
-Data For Machine Learning
+65、Data For Machine Learning
 
 ### Review
 
 # Week 7
 
 ## 十二、Support Vector Machines
-
+---
 ### Large Margin Classification
 
-Optimization Objective
+66、Optimization Objective
 
-Large Margin Intuition
+67、Large Margin Intuition
 
-Mathematics Behind Large Margin Classification
+68、Mathematics Behind Large Margin Classification
 
 
 ### Kernels
 
-Kernels Ⅰ
+69、Kernels Ⅰ
 
-Kernels Ⅱ
+70、Kernels Ⅱ
 
 ### SVMs in Practice
 
@@ -269,7 +270,7 @@ Kernels Ⅱ
 # Week 8
 
 ## 十三、Unsupervised Learning
-
+---
 ### Clustering
 
 Unsupervised Learning:Introduction
@@ -286,7 +287,7 @@ Choosing the Number of Clusters
 
 
 ## 十四、Dimensionality Reduction
-
+---
 ### Motivation
 
 Motivation Ⅰ:Data Compression
@@ -315,7 +316,7 @@ Advice for Apply PAC
 # Week 9
 
 ## 十五、Anomaly Detection
-
+---
 ### Density Estimation
 
 Problem Motivation
@@ -341,7 +342,7 @@ Anomaly Detection using the Multivariate Gaussian Distribution
 ### Review
 
 ## 十六、Recommender Systems
-
+---
 ### Predicting Movie Ratings
 
 Problem Formulation
@@ -367,7 +368,7 @@ Implementational Detail:Mean Normalization
 # week 10
 
 ## 十七、Large Scale Machine learning
-
+---
 ### Gradient Dsecent with Large Datasets
 
 Learning With Large Datasets
@@ -390,7 +391,7 @@ Map Reduce and Data Parallelism
 # week 11
 
 ## 十八、Application Example:Photo OCR
-
+---
 ### Photo OCR
 
 Problem Description and Pipeline
