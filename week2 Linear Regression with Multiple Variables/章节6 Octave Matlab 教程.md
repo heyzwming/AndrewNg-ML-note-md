@@ -205,10 +205,7 @@ Diagonal Matrix
    0   0   1   0   0
    0   0   0   1   0
    0   0   0   0   1
-```  
-
-```matlab
->> A
+   
 
 A =
 
