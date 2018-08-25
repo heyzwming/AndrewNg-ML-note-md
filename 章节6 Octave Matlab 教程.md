@@ -352,6 +352,7 @@ D =
 
 ### 读取数据
 
+
 ```matlab
 % 找到文件所在目录：
 >> cd Desktop/
@@ -539,7 +540,7 @@ featuresX.dat	hello.mat	hello.txt	priceY.dat
 
 ##### 向量中的最大值：
 
-```
+```matlab
 >> A = [1 3 0.5 10 100]
 A =
 
@@ -677,7 +678,7 @@ ans =
 
 ##### 取出矩阵每行最大的元素：
 
-```
+```matlab
 >> max(A, [], 2)
 ans =
 
@@ -688,7 +689,7 @@ ans =
 
 ##### 想要直接获得矩阵中最大的元素，以下两种方式都可以：
 
-```
+```matlab
 % 方式一：
 >> max(max(A))
 ans =  6
