@@ -1,529 +1,281 @@
-## 课时35  基本操作  13:59
+Octave/Matlab教程
+===
+
+## 基本操作
+
+### 四则运算
 
 ```matlab
->> 5+6
-
-ans =
-
-    11
-
->> 3-2
-
-ans =
-
-     1
-
->> 5*8
-
-ans =
-
-    40
-
->> 1/2
-
-ans =
-
-    0.5000
-
->> 2^6
-
-ans =
-
-    64
-
->> 1 == 2 %false
-
-ans =
-
-     0
-
->> 1 ~= 2
-
-ans =
-
-     1
-
->> 1 && 0  %AND
-
-ans =
-
-     0
-
->> 1 || 0  %OR
-
-ans =
-
-     1
-
->> xor(1,0)
-
-ans =
-
-     1
-
->> 
->> 
->> a = 3
-
-a =
-
-     3
-
->> b = 3; %semiconlon supressing output
->> b
-
-b =
-
-     3
-
->> c = 'hi'
-
-c =
-
-hi
-
->> d = (3 >= 1)
-
-d =
-
-     1
-
->> e = pi;
->> e
-
-e =
-
-    3.1416
-
->> disp(e)
-    3.1416
-
->> disp(sprintf('2 decimals: %0.2f',a))
-2 decimals: 3.00
->> disp(sprintf('2 decimals: %0.2f',e))
-2 decimals: 3.14
->> 
->> 
->> A = [1 2; 3 4; 5 6;]
-
-A =
-
-     1     2
-     3     4
-     5     6
-
->> B = [1 2;
-3 4;
-5 6]
-
-B =
-
-     1     2
-     3     4
-     5     6
-
->> v = [1 2 3]
-
-v =
-
-     1     2     3
-
->> u = [1;2;3]
-
-u =
-
-     1
-     2
-     3
-
->> v = 1:0.1:2
-
-v =
-
-  1 至 7 列
-
-    1.0000    1.1000    1.2000    1.3000    1.4000    1.5000    1.6000
-
-  8 至 11 列
-
-    1.7000    1.8000    1.9000    2.0000
-
->> v = 1:6
-
-v =
-
-     1     2     3     4     5     6
-
->> ones(2,3)
-
-ans =
-
-     1     1     1
-     1     1     1
-
->> f = 2*ones(2,3)
-
-f =
-
-     2     2     2
-     2     2     2
-
->> g = [2 2 2; 2 2 2; 2 2 2]
-
-g =
-
-     2     2     2
-     2     2     2
-     2     2     2
-
->> h = ones(1,3)
-
-h =
-
-     1     1     1
-
->> i = zeros(1,3)
-
-i =
-
-     0     0     0
-
->> w = rand(1,3)
-
-w =
-
-    0.8147    0.9058    0.1270
-
->> rand(3,3)
-
-ans =
-
-    0.9134    0.2785    0.9649
-    0.6324    0.5469    0.1576
-    0.0975    0.9575    0.9706
-
->> rand(3,3)
-
-ans =
-
-    0.9572    0.1419    0.7922
-    0.4854    0.4218    0.9595
-    0.8003    0.9157    0.6557
-
->> w = randn(1,3)
-
-w =
-
-   -1.2075    0.7172    1.6302
-
->> w = randn(1,3)
-
-w =
-
-    0.4889    1.0347    0.7269
-
->> w = -6 + sqrt(10)*(randn(1,1000));
-
->> hist(w)
->> hist(w,50)
->> eye(4)
-
-ans =
-
-     1     0     0     0
-     0     1     0     0
-     0     0     1     0
-     0     0     0     1
+octave:1> 5+6   
+ans =  11
+octave:2> 3-2
+ans =  1
+octave:3> 5*8
+ans =  40
+octave:4> 1/2
+ans =  0.50000
 ```
 
+### 逻辑运算
 
-## 课时36  移动数据  16:07
+```matlab
+octave:6> 1 == 2        % 判等
+ans = 0
+octave:7> 1 ~= 2        % 非
+ans =  1
+octave:8> 1 && 0        % 与
+ans = 0
+octave:9> 1 || 0        % 或
+ans =  1
+octave:10> xor(1,0)     % 异或
+ans =  1
+```
 
->> A = [1 2; 3 4; 5 6]
+### 其他
 
-A =
+##### 更改提示符：
 
-     1     2
-     3     4
-     5     6
+```matlab
+octave:11> PS1('>> ')
+>>
+```
 
->> size(A)  %return the size of the matrix
+##### 添加分号可抑制输出：
 
-ans =
+```matlab
+>> a = 1
+a =  1
+>> a = 1;
+>>
+```
 
-     3     2
+##### 圆周率π：
 
->> sz = size(A)
+```matlab
+>> a = pi
+a =  3.1416
+```
 
-sz =
+##### 常数e：
 
-     3     2
+```matlab
+>> e
+ans =  2.7183
+```
 
->> sz % now sz is a matrix with the first element 3 and the second element is 2
+##### 格式化输出：
 
-sz =
+```matlab
+>> disp(sprintf('6 decimals: %0.6f', a))
+6 decimals: 3.141593
+>> disp(sprintf('6 decimals: %0.2f', a))
+6 decimals: 3.14
+>> format long 
+>> a
+a =  3.14159265358979
+>> format short
+>> a
+a =  3.1416
+```
 
-     3     2
+### 矩阵
+##### 构造一个矩阵，方式一：
 
->> size(sz)
-
-ans =
-
-     1     2
-
->> size(A,1) %return the size of the first dimension of A
-
-ans =
-
-     3
-
->> size(A,2)
-
-ans =
-
-     2
-
->> v = [1 2 3 4]
-
-v =
-
-     1     2     3     4
-
->> length(v) % the size of the longest dimension
-
-ans =
-
-     4
-
->> length(A) %the longer size is 3
-
-ans =
-
-     3
-
->> length([1;2;3;4;5])
-
-ans =
-
-     5
-
->> 
->> 
->> 
->> % load data and find data on the file system
->> 
->> pwd
-
-ans =
-
-C:\Users\谢昀臻\Documents\MATLAB
-
->> cd 'C:'\!WorkSpace\'
- cd 'C:'\!WorkSpace\'
-    ↑
-错误: 字符串未正常终止。
- 
->> cd 'C:\!WorkSpace\'
->> ls
-
-.                    Arduino              JAVA                 ebooks               test.ino             
-..                   C                    Python               eeee                 
-AndrewNg-ML-note-md  C++                  Python-Crawler       scrapy               
-
->> % using " load 'filename' " command to load data file
->> % who command can show the whole variables I have in my workspace
->> 
->> who
-
-您的变量为:
-
-A    ans  sz   v    
-
->> % "whos" command gives you the detailed view 
->> whos
-  Name      Size            Bytes  Class     Attributes
-
-  A         3x2                48  double              
-  ans       1x29               58  char                
-  sz        1x2                16  double              
-  v         1x4                32  double              
-
->> % using "clear __" to clear some variables
->> % let priceV a 47-d vector
->> priceV = [1;2;3;4;5;6;7;8;9;10;11;12;13;14;15;16;17;18;19;20;21;22;23;24;25;26;27;28;29;30;31;32;33;34;35;36;37;38;39;40;41;42;43;44;45;46;47]
-
-priceV =
-
-     1
-     2
-     3
-     4
-     5
-     6
-     7
-     8
-     9
-    10
-    11
-    12
-    13
-    14
-    15
-    16
-    17
-    18
-    19
-    20
-    21
-    22
-    23
-    24
-    25
-    26
-    27
-    28
-    29
-    30
-    31
-    32
-    33
-    34
-    35
-    36
-    37
-    38
-    39
-    40
-    41
-    42
-    43
-    44
-    45
-    46
-    47
-
->> % give 10 elements of vector Y  to the v
->> v = priceY(1:10)
-未定义函数或变量 'priceY'。
- 
-是不是想输入:
->> v = priceV(1:10)
-
-v =
-
-     1
-     2
-     3
-     4
-     5
-     6
-     7
-     8
-     9
-    10
-
->> % save the v as a file called hello.mat
->> save hello.mat v;
->> clear 
->> whos 
->> who
->> load hello.mat
->> who
-
-您的变量为:
-
-v  
-
->> whos
-  Name       Size            Bytes  Class     Attributes
-
-  v         10x1                80  double              
-
->> v
-
-v =
-
-     1
-     2
-     3
-     4
-     5
-     6
-     7
-     8
-     9
-    10
-
->> save hello.txt v -ascii  & save as text(ASCII)
-错误使用 save
-'&' 不是有效的变量名称。
- 
->> save hello.txt v -ascii  % save as text(ASCII)
+```matlab
 >> A = [1 2; 3 4; 5 6;]
+A =
+
+   1   2
+   3   4
+   5   6
+```
+
+##### 构造一个矩阵，方式二：
+
+```
+>> A = [1 2;
+> 3 4;
+> 5 6;
+> ]
+A =
+
+   1   2
+   3   4
+   5   6
+```
+
+##### 构造一个横向量：
+
+```matlab
+>> v = [1 2 3]
+v =
+
+   1   2   3
+```
+
+##### 构造一个列向量：
+
+```matlab
+>> v = [1; 2; 3]
+v =
+
+   1
+   2
+   3
+```
+
+##### 从1到2，每次递增0.1
+
+```matlab
+>> v = 1:0.1:2
+v =
+
+ Columns 1 through 5:
+
+    1.0000    1.1000    1.2000    1.3000    1.4000
+
+ Columns 6 through 10:
+
+    1.5000    1.6000    1.7000    1.8000    1.9000
+
+ Column 11:
+
+    2.0000
+```
+
+##### 从1到6，每次递增1(默认)：
+
+```matlab
+>> v = 1:6
+v =
+
+   1   2   3   4   5   6
+```
+
+##### 构造一个所有元素均为1的矩阵：
+
+```matlab
+>> ones(2, 3)
+ans =
+
+   1   1   1
+   1   1   1
+```
+
+##### 每个元素乘以2，矩阵与标量乘法：
+
+```matlab
+>> C = 2*ones(2, 3)
+C =
+
+   2   2   2
+   2   2   2
+```
+
+##### 高斯随机数：
+
+```matlab
+>> rand(3, 3)
+ans =
+
+   0.751588   0.906707   0.081204
+   0.411613   0.457779   0.882052
+   0.622524   0.774499   0.811092
+```
+
+##### 构造一个所有元素均为0的矩阵：
+
+```matlab
+>> w = zeros(1, 3)
+w =
+
+   0   0   0
+```
+
+##### 构造一个单位矩阵：
+
+```matlab
+>> I = eye(5)
+I =
+
+Diagonal Matrix
+
+   1   0   0   0   0
+   0   1   0   0   0
+   0   0   1   0   0
+   0   0   0   1   0
+   0   0   0   0   1
+   
 
 A =
 
-     1     2
-     3     4
-     5     6
+   1   2
+   3   4
+   5   6
+```
 
->> A(3,2) %index
+##### 读取矩阵A第三行第二列的元素：
 
-ans =
+```matlab
+>> A(3, 2)
+ans =  6
+```
 
-     6
+##### 读取矩阵A第2列所有元素：
 
->> A(2,:)   % fetch everything in the second row
-
-ans =
-
-     3     4
-
->> % ":" means every element along that row/column
+```matlab
 >> A(:,2)
-
 ans =
 
-     2
-     4
-     6
+   2
+   4
+   6
+```
 
+##### 读取矩阵A第2行所有元素：
+
+```matlab
+>> A(2,:)
+ans =
+
+   3   4
+```
+
+##### 读取矩阵A第1行和第3行的所有元素：
+
+```matlab
 >> A([1 3],:)
-
 ans =
 
-     1     2
-     5     6
+   1   2
+   5   6
+```
 
->> 
->> 
->> A
+##### 将A第二列替换为[10;11;12]：
 
-A =
-
-     1     2
-     3     4
-     5     6
-
+```matlab
 >> A(:,2) = [10; 11; 12]
-
 A =
 
-     1    10
-     3    11
-     5    12
+    1   10
+    3   11
+    5   12
+```
 
->> A = [A,[100;101;102]];    % append another column vector to right
->> A
+##### 在A的最后加上一列：
 
+```matlab
+>> A = [A, [100; 101; 102]]
 A =
 
      1    10   100
      3    11   101
      5    12   102
+```
+##### 将A所有的元素合并成一个列向量
 
->> A(:)    % put all elements of A into a single vector
-
+```matlab
+>> A(:)
 ans =
 
      1
@@ -535,55 +287,602 @@ ans =
    100
    101
    102
+```
 
->> A = [1 2; 3 4; 5 6];
->> B = [11 12; 13 14; 15 16]
+##### 两个矩阵的合并（列合并）
 
+```matlab
+>> A = [1 2; 3 4; 5 6]
+A =
+
+   1   2
+   3   4
+   5   6
+
+>> B = [7 8; 9 10; 11 12]
 B =
 
-    11    12
-    13    14
-    15    16
+    7    8
+    9   10
+   11   12
 
->> C = [A B]    % concatenating onto each other
-
+>> C = [A B]
 C =
 
-     1     2    11    12
-     3     4    13    14
-     5     6    15    16
+    1    2    7    8
+    3    4    9   10
+    5    6   11   12
+```
 
->> D = [A; B]    % put the next thing at the bottom
+##### 两个矩阵的合并（行合并）
 
+```matlab
+>> D = [A;B]
 D =
 
-     1     2
-     3     4
-     5     6
-    11    12
-    13    14
-    15    16
+    1    2
+    3    4
+    5    6
+    7    8
+    9   10
+   11   12
+```
 
->> [A B]
+##### 查看帮助：
 
+```matlab
+>> help eye
+```
+
+##### 构造10000个随机数，并绘制出图形(高斯分布)：
+
+```matlab
+>> w=randn(1,10000);
+>> hist(w,50)
+```
+
+![高斯分布]()
+
+
+## 移动数据(数据的读取与存储)
+本节所用到的数据: featuresX.dat, priceY.dat
+
+### 读取数据
+
+```matlab
+% 找到文件所在目录：
+>> cd Desktop/
+>> cd 'Machine Learning/'
+>> ls
+featuresX.dat	priceY.dat
+```
+
+数据如下所示：
+![data]()
+
+##### 读取数据：
+
+```matlab
+% 方式一：
+>> load featuresX.dat
+>> load priceY.dat
+```
+
+```matlab
+% 方式二：
+>> load('featuresX.dat')
+>> load('priceY.dat')
+```
+
+##### 使用who命令显示当前所有变量：
+
+```matlab
+>> who
+Variables in the current scope:
+
+A          a          featuresX  v          y
+C          ans        priceY     w
+I          c          sz         x
+```
+
+##### 可以看到，刚才导入的数据已经在变量featuresX和priceY中了。
+
+##### 展示数据：
+
+```matlab
+>> featuresX
+featuresX =
+
+   2104      3
+   1600      3
+   2400      3
+   1416      2
+   3000      4
+   1985      4
+   1534      3
+    ...        ..
+
+>> size(featuresX)
 ans =
 
-     1     2    11    12
-     3     4    13    14
-     5     6    15    16
+   27    2
 
->> [A, B]
+>> priceY
+priceY =
 
+   3999
+   3299
+   3690
+   2320
+   5399
+   2999
+    ...
+    
+>> size(priceY)
 ans =
 
-     1     2    11    12
-     3     4    13    14
-     5     6    15    16
+   27    1
+```
 
->> 
+##### 使用whos查看变量更详细的信息：
 
-## 课时37  计算数据  13:15
-## 课时38  数据绘制  09:38
-## 课时39  控制语句：for，while，if 语句 12:56
-## 课时40  矢量  13:48
-## 课时41  本章课程总结
+![whos]()
+
+##### 使用如下命令用来删除某个变量：
+
+```matlab
+>> clear featuresX
+>> whos
+```
+
+##### 这个时候再使用whos查看，发现featuresX已经不见了。
+
+### 存储数据
+假设我们现在需要取出priceY前十个数据，使用如下命令：
+
+```matlab
+>> v = priceY(1:10)
+v =
+
+   3999
+   3299
+   3690
+   2320
+   5399
+   2999
+   3149
+   1989
+   2120
+   2425
+```   
+
+##### 该如何存储这十个数据呢？使用save命令：
+
+```matlab
+>> save hello.mat v
+>> ls
+featuresX.dat	hello.mat	priceY.dat
+```
+
+##### 清空所有变量：
+
+```
+>> clear
+>> whos
+>> %无任何输出
+```
+
+刚才存储数据是以二进制的形式进行存储，我们也可以使用人能够读懂的形式存储。例如：
+
+```
+>> load hello.mat
+>> whos
+Variables in the current scope:
+
+   Attr Name        Size                     Bytes  Class
+   ==== ====        ====                     =====  ===== 
+        v          10x1                         80  double
+
+Total is 10 elements using 80 bytes
+
+>> v
+v =
+
+   3999
+   3299
+   3690
+   2320
+   5399
+   2999
+   3149
+   1989
+   2120
+   2425
+
+>> save hello.txt v -ascii
+>> ls
+featuresX.dat	hello.mat	hello.txt	priceY.dat
+```
+
+##### 数据的计算
+
+```matlab
+% 各种矩阵运算
+>> A * B
+>> A .* B
+>> A .^ 2
+>> 1 ./ A
+>> log(A)
+>> exp(A)
+>> -A
+A中的每个元素都加上1：
+
+>> A + ones(size(A))
+这样也可以：
+
+>> A + 1
+矩阵转置：
+
+>> A'
+向量中的最大值：
+
+>> A = [1 3 0.5 10 100]
+A =
+
+     1.00000     3.00000     0.50000    10.00000   100.00000
+
+>> [val ind] = max(A)
+val =  100
+ind =  5
+```
+
+##### 比较大小：
+
+```matlab
+>> A = [1 2; 3 4; 5 6]
+A =
+
+   1   2
+   3   4
+   5   6
+
+>> A > 3
+ans =
+
+   0   0
+   0   1
+   1   1
+```
+
+##### 找出向量中特定元素：
+
+```matlab
+>> find(A > 3)
+ans =
+
+   3
+   5
+   6
+```
+
+##### 找出矩阵中特定元素：
+
+```matlab
+>> [r c] = find(A >= 3)
+r =
+
+   2
+   3
+   2
+   3
+
+c =
+
+   1
+   1
+   2
+   2
+```
+生成任意行、列、对角线和相等的矩阵：
+```
+>> magic(3)
+ans =
+
+   8   1   6
+   3   5   7
+   4   9   2
+```
+向量所有元素的和：
+```
+>> a = [1.2 2.3 4.5 6.6]
+a =
+
+   1.2000   2.3000   4.5000   6.6000
+
+>> sum(a)
+ans =  14.600
+```
+向上及向下取整：
+```
+>> floor(a)
+ans =
+
+   1   2   4   6
+
+>> ceil(a)
+ans =
+
+   2   3   5   7
+```
+构造一个由A,B两个矩阵中对应位置较大的数组成的矩阵：
+
+```
+A =
+
+   1   2
+   3   4
+   5   6
+
+>> B = [3 1; 4 6; 2 9]
+B =
+
+   3   1
+   4   6
+   2   9
+
+>> max(A, B)
+ans =
+
+   3   2
+   4   6
+   5   9
+
+A =
+
+   1   2
+   3   4
+   5   6
+```
+取出矩阵每列最大的元素：
+```
+>> max(A, [], 1)
+ans =
+
+   5   6
+```
+取出矩阵每行最大的元素：
+```
+>> max(A, [], 2)
+ans =
+
+   2
+   4
+   6
+```
+想要直接获得矩阵中最大的元素，以下两种方式都可以：
+```
+% 方式一：
+>> max(max(A))
+ans =  6
+% 方式二：
+>> max(A(:))
+ans =  6
+```
+矩阵的上下翻转：
+```
+>> eye(3)
+ans =
+
+Diagonal Matrix
+
+   1   0   0
+   0   1   0
+   0   0   1
+
+>> flipud(eye(3))
+ans =
+
+Permutation Matrix
+
+   0   0   1
+   0   1   0
+   1   0   0
+```
+矩阵的逆：
+```
+>> A = rand(3, 3)
+A =
+
+   0.68934   0.12881   0.80507
+   0.49777   0.41907   0.37271
+   0.32607   0.27877   0.41814
+
+>> tmp = pinv(A)
+tmp =
+
+   1.795801   4.294380  -7.285421
+  -2.180466   0.647802   3.620828
+   0.053345  -3.780710   5.658801
+
+>> tmp * A
+ans =
+
+   1.00000   0.00000   0.00000
+   0.00000   1.00000   0.00000
+  -0.00000  -0.00000   1.00000
+```
+绘制数据
+绘制出sin函数图像：
+```
+x = [0: 0.01: 0.98];
+>> y = sin(2*pi*4*x);
+>> plot(x,y);
+```
+绘制出cos函数图像
+```
+y2 = cos(2*pi*4*x);
+```
+将两个函数绘制在一起：
+```
+>> plot(x,y);
+>> hold on;
+>> plot(x,y2,'r')
+```
+
+添加说明：
+```
+>> xlabel("time");
+>> ylabel("value");
+>> lengend("sin", "cos");
+error: 'lengend' undefined near line 1 column 1
+>> legend("sin", "cos");
+```
+存储图像：
+```
+>> print -dpng "myPlot.png"
+```
+
+关掉绘制的图像：
+```
+>> close
+```
+分别在两个窗口显示两个图像：
+```
+>> figure(1); plot(x, y);
+>> figure(2); plot(x, y2);
+```
+在同一窗口不同位置显示两个图像：
+```
+>> subplot(1,2,1);plot(x, y);
+>> subplot(1,2,2);plot(x, y2);
+```
+
+改变左边图像的横坐标的刻度：
+```
+>> subplot(1,2,1)
+>> axis([0 0.5 -1 1])
+```
+
+清除所有绘制的图像：
+```
+>> clf
+```
+将矩阵可视化：
+```
+>> imagesc(magic(15))
+
+
+>> imagesc(A), colorbar, colormap gray
+```
+
+### 控制语句
+for循环：
+```
+>> for i=1:10,
+>      v(i) = i^2;
+>  end;
+>> v
+v =
+
+     1     4     9    16    25    36    49    64    81   100
+```
+while循环：
+```
+>> i = 1;
+>> while i <= 10,
+>      v(i) = sqrt(v(i));
+> 
+Display all 1753 possibilities? (y or n)
+>      i = i + 1;
+>  end;
+>> v
+v =
+
+    1    2    3    4    5    6    7    8    9   10
+```
+定义一个函数：
+
+```
+>> ls
+featuresX.dat		myPlot.png		squareThisNumber.m
+hello.mat		octave-workspace
+hello.txt		priceY.dat
+>> squareThisNumber(3)
+ans =  9
+```
+如果该定义的函数不在当前目录下，我们就不能使用它：
+```
+>> cd ~
+>> pwd
+ans = /Users/bobo
+>> squareThisNumber(3)
+error: 'squareThisNumber' undefined near line 1 column 1
+```
+不过我们也可以更改Octave的搜索路径：
+```
+>> addpath("~/Desktop/Machine-Learning")
+```
+更改之后，我们现在虽然在/User/bobo目录下，但是仍然可以使用squareThisNumber函数。
+```
+>> pwd
+ans = /Users/bobo
+>> squareThisNumber(5)
+ans =  25
+```
+返回两个值的函数：
+
+```
+>> [y1, y2] = squareAndCube(3)
+y1 =  9
+y2 =  27
+```
+代价函数：
+
+```
+>> X = [1 1; 1 2; 1 3]
+X =
+
+   1   1
+   1   2
+   1   3
+
+>> y = [1; 2; 3]
+y =
+
+   1
+   2
+   3
+
+>> theta = [0; 1]
+theta =
+
+   0
+   1
+
+>> costFunctionJ(X, y, theta)
+ans = 0
+```
+
+如果
+θ
+=
+[
+0
+;
+0
+]
+
+```
+>> theta = [0; 0]
+theta =
+
+   0
+   0
+
+>> costFunctionJ(X, y, theta)
+ans =  2.3333
+```
+
+向量化
+Vectorization
+
