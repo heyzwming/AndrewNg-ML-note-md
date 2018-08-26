@@ -2,10 +2,30 @@ Logistic 回归(Logistic Regression)
 ===
 
 
+
+## 七、Regularization
+---
+### Solving the Problem of Overfitting
+
+35、The Problem of Overfitting
+
+36、Cost Function
+
+37、Regularized Linear Regression
+
+38、Regularized Logistic Regression
+
+### Review
+
+
+
+
+
+
 # Classification and Representation
 
 ## 课时42  分类(Classification)  08:08
-
+ 
 预测值是离散值情况下的分类问题
 我们从只有01两类的分类问题入手。
 
