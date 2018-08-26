@@ -5,32 +5,35 @@
 
 ## 6、Model Representation(模型描述)
 
-上一章已经通过卖房价格的模型简单介绍了什么是回归：我们尝试将变量映射到某一个连续函数上。
+回归:将变量映射到某一个连续函数上。
 
 ![6.1](http://m.qpic.cn/psb?/V12umJF70r2BEK/CafuXmKosDXN.5FMGtIEq7n6ocrA1dXgyhPeYsX6wuI!/b/dDwBAAAAAAAA&bo=IQcDBAAAAAARBxE!&rf=viewer_4)
 
 这章我们将这个问题简单地量化为**单变量线性回归模型**(Univariate linear regression)来理解它。
 
-> To establish notation(建立符号) for future use, we’ll use **x^(i)** to denote(表示) the **“input” variables** (living area in this example), also called **input features**, and **y^(i)** to denote the **“output”** or **target variable** that we are trying to predict (price). A pair **(x^(i) , y^(i) )** is called **a training example**, and the dataset that we’ll be using to learn——a list of **m training examples** (x^(i),y^(i)); i=1,...,m—is called **a training set**. Note that the superscript(上标) “(i)” in the notation is simply an **index** into the training set, and has nothing to do with exponentiation. We will also use **X** to denote the space of input values, and **Y** to denote the space of output values. In this example, X = Y = ℝ.
+> To establish notation(建立符号) for future use, we’ll use $x^{(i)}$ to denote(表示) the **“input” variables** (living area in this example), also called **input features**, and $y^{(i)}$ to denote the **“output”** or **target variable** that we are trying to predict (price). A pair $(x^{(i)} , y^{(i)})$ is called **a training example**, and the dataset that we’ll be using to learn——a list of **m training examples** $(x^{(i)},y^{(i)})$; i=1,...,m—is called **a training set**. Note that the superscript(上标) “(i)” in the notation is simply an **index** into the training set, and has nothing to do with exponentiation. We will also use **X** to denote the space of input values, and **Y** to denote the space of output values. In this example, $X$ = $Y$ = $ℝ$.
 
 我们有一堆数据集，也叫训练集，下图我们来定义一些课程中用到的符号。
 
 首先，我们定义三个变量：
 
 m = 用于训练的样本数
-x^i = 第i个训练样本“输入”变量/特征量
-​y^i = ​第i个训练样本“输出”变量/特征量
+
+$x^i$ = 第$i$个训练样本“输入”变量/特征量
+
+$​y^i$ = ​第$i$个训练样本“输出”变量/特征量
+
 ![6.2](http://m.qpic.cn/psb?/V12umJF70r2BEK/*ssrGbJhFGJCR0xMuxqlXZNyH.p.tXpTg3dWkqjX30o!/b/dIABAAAAAAAA&bo=NgcABAAAAAARFxU!&rf=viewer_4)
 
 
-> To describe the supervised learning problem slightly more formally, our goal is, given a training set, to learn a function h : X → Y so that h(x) is a “good” predictor for the corresponding(一致的) value of y. For historical reasons, this function h is called a hypothesis. Seen pictorially, the process is therefore like this:
+> To describe the supervised learning problem slightly more formally, our goal is, given a training set, to learn a function $h$ : $X → Y$ so that h(x) is a “good” predictor for the corresponding(一致的) value of $y$. For historical reasons, this function $h$ is called a hypothesis. Seen pictorially, the process is therefore like this:
 
 
 > When the target variable that we’re trying to predict is continuous, such as in our housing example, we call the learning problem a regression problem. When y can take on only a small number of discrete values (such as if, given the living area, we wanted to predict if a dwelling is a house or an apartment, say), we call it a classification problem.
 
 如何给训练集下定义，先来看一下监督学习算法是怎么工作的.
 
-算法的任务是 输出一个函数，用小写字母h表示,h表示假设(hypothesis)函数,这个假设函数的作用是把房子的大小作为输入变量x值,并输出想应房子的预测y值。
+算法的任务是 输出一个函数，用小写字母$h$表示,$h$表示假设(hypothesis)函数,这个假设函数的作用是把房子的大小作为输入变量$x$值,并输出想应房子的预测$y$值。
 
 接下来人们的问题变成了如何表示假设函数
 
@@ -38,7 +41,7 @@ x^i = 第i个训练样本“输入”变量/特征量
 
 以及一个函数：
 
-h_θ(x)=θ_0+θ_1*x               (1.1)
+$$h_θ(x)=θ_0+θ_1*x$$               (1.1)
 其中h是hypothesis（假设）的意思，当然，这个词在机器学习的当前情况下并不是特别准确。θ是参数，我们要做的是通过训练使得θ的表现效果更好。
 这种模型被称为线性回归/单变量线性回归(Univariate linear regression)。
 
