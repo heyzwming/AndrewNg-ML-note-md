@@ -341,7 +341,7 @@ D =
 >> hist(w,50)
 ```
 
-![高斯分布]()
+![高斯分布](http://a2.qpic.cn/psb?/V12umJF70r2BEK/EX3aCCa.DJBw2kDCtC6KimbMtEnJxswHXWURXZrYs6w!/b/dA0BAAAAAAAA&ek=1&kp=1&pt=0&bo=XgOhAgAAAAARF94!&tl=3&vuin=904260897&tm=1535274000&sce=60-2-2&rf=viewer_4)
 
 
 ## 移动数据(数据的读取与存储)
@@ -426,7 +426,7 @@ ans =
 
 ##### 使用whos查看变量更详细的信息：
 
-![whos]()
+
 
 ##### 使用如下命令用来删除某个变量：
 
@@ -845,22 +845,26 @@ ans =
   -0.00000  -0.00000   1.00000
 ```
 
-## 绘制数据
-##### 绘制出sin函数图像：
+## 数据绘制
+
+> 绘图并可视化数据
+
+##### 绘制出sin函数图像：横轴是x，纵轴是y
 
 ```matlab
 x = [0: 0.01: 0.98];
->> y = sin(2*pi*4*x);
->> plot(x,y);
+>> y1 = sin(2*pi*4*x);
+>> plot(x,y1);
 ```
 
 ##### 绘制出cos函数图像
 
 ```matlab
-y2 = cos(2*pi*4*x);
+>> y2 = cos(2*pi*4*x);
+>> plot(x,y2)
 ```
 
-##### 将两个函数绘制在一起：
+##### 将两个函数绘制在一起：使用hold on函数，即在旧的图像上绘制新的图像。带引号的r，指的是所使用的颜色
 
 ```matlab
 >> plot(x,y);
@@ -871,11 +875,11 @@ y2 = cos(2*pi*4*x);
 ##### 添加说明：
 
 ```matlab
->> xlabel("time");
->> ylabel("value");
->> lengend("sin", "cos");
-error: 'lengend' undefined near line 1 column 1
->> legend("sin", "cos");
+>> xlabel("time");      % xlabel 横轴标签
+>> ylabel("value");     % ylabel 纵轴标签
+>> legend("sin", "cos");   % 标记我的两条函数曲线
+
+>> title("my plot");    % 标题
 ```
 
 ##### 存储图像：
@@ -893,14 +897,14 @@ error: 'lengend' undefined near line 1 column 1
 ##### 分别在两个窗口显示两个图像：
 
 ```matlab
->> figure(1); plot(x, y);
+>> figure(1); plot(x, y1);
 >> figure(2); plot(x, y2);
 ```
 
-##### 在同一窗口不同位置显示两个图像：
+##### 在同一窗口不同位置显示两个图像：subplot(1,2,1)将图像分成一个1*2的格子，并在第一个格子中绘图
 
 ```matlab
->> subplot(1,2,1);plot(x, y);
+>> subplot(1,2,1);plot(x, y1);
 >> subplot(1,2,2);plot(x, y2);
 ```
 
@@ -920,43 +924,169 @@ error: 'lengend' undefined near line 1 column 1
 ##### 将矩阵可视化：
 
 ```matlab
->> imagesc(magic(15))
+>> imagesc(magic(15))   % 不同颜色对应着矩阵中的不同的值
 
-
->> imagesc(A), colorbar, colormap gray
+>> imagesc(A), colorbar, colormap gray  % 灰度颜色图和一个颜色条,使用逗号连续调用函数
 ```
+
+![imagesc](http://m.qpic.cn/psb?/V12umJF70r2BEK/xja2xwopSb5ptwy7G3c8MUL3*63kMi8*V26cHKgTC5k!/b/dIIBAAAAAAAA&bo=MgIzAgAAAAARFyE!&rf=viewer_4)
+![colorbar](http://m.qpic.cn/psb?/V12umJF70r2BEK/D6RXzVulD6FVeSVlOj2E1eXWB2eGCW3O1922WHzhgBo!/b/dN4AAAAAAAAA&bo=MgIzAgAAAAARFyE!&rf=viewer_4)
 
 ### 控制语句
 ##### for循环：
 
 ```matlab
->> for i=1:10,
->      v(i) = i^2;
->  end;
+>> v = zeros(10,1);
 >> v
 v =
 
-     1     4     9    16    25    36    49    64    81   100
+   0
+   0
+   0
+   0
+   0
+   0
+   0
+   0
+   0
+   0
+
+>> for i = 1:10;
+v(i) = 2^i;
+end;
+>> v
+v =
+
+      2
+      4
+      8
+     16
+     32
+     64
+    128
+    256
+    512
+   1024
+
+% 设置indices索引等于1到10
+>> indices = 1:10;
+>> indices
+indices =
+
+    1    2    3    4    5    6    7    8    9   10
+
+>> for i = indices;
+disp(i);
+end;
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+ 10
+>>
+
 ```
 
 ##### while循环：
 
 ```matlab
+>> v
+v =
+      2
+      4
+      8
+     16
+     32
+     64
+    128
+    256
+    512
+   1024
+
 >> i = 1;
->> while i <= 10,
->      v(i) = sqrt(v(i));
-> 
-Display all 1753 possibilities? (y or n)
->      i = i + 1;
->  end;
+>> while i <= 5;
+v(i) = 100;
+i = i + 1
+end;
+i =  2
+i =  3
+i =  4
+i =  5
+i =  6
 >> v
 v =
 
-    1    2    3    4    5    6    7    8    9   10
+    100
+    100
+    100
+    100
+    100
+     64
+    128
+    256
+    512
+   1024
 ```
 
-##### 定义一个函数：
+##### if 语句
 
+```matlab
+>> i = 1;
+>> while true
+     v(i) = 999;
+     i = i + 1;
+     if i == 6;
+        break;
+     end;
+   end;
+>> v
+v =
+
+    999
+    999
+    999
+    999
+    999
+     64
+    128
+    256
+    512
+   1024
+```
+
+##### if-else 语句
+
+```matlab
+>> v(1)
+ans =  999
+>> v(1) = 2
+>> if v(1) == 1,
+     disp("The value is one")
+   elseif v(1) == 2,
+     disp("The value is two")
+   else
+     disp("The value is not one or two")
+   end;
+The value is two
+>>
+
+```
+
+
+
+##### 定义一个函数：
+你需要创建一个文件，然后用你的函数名命名，然后以.m为后缀
+
+```matlab
+function y1 = squareAndCudeThisNumber(x)
+
+y = x^2
+```
 
 ```matlab
 >> ls
@@ -995,12 +1125,21 @@ ans =  25
 ##### 返回两个值的函数：
 
 ```matlab
->> [y1, y2] = squareAndCube(3)
+function [y1, y2] = squareAndCudeThisNumber(x)
+
+y1 = x^2
+y2 = x^3
+```
+
+```matlab
+>> [y1, y2] = squareAndCudeThisNumber(3)
 y1 =  9
 y2 =  27
 ```
 
 ##### 代价函数：
+
+![cost func](http://m.qpic.cn/psb?/V12umJF70r2BEK/eVFvCpbpzEHT41fYfUpZ38pT8zR347steFeniwhYdqU!/b/dOAAAAAAAAAA&bo=xQKqAQAAAAARB1w!&rf=viewer_4)
 
 ```matlab
 >> X = [1 1; 1 2; 1 3]
@@ -1010,7 +1149,7 @@ X =
    1   2
    1   3
 
->> y = [1; 2; 3]
+>> y = [1; 2; 3]    %y轴对应的值
 y =
 
    1
@@ -1027,15 +1166,6 @@ theta =
 ans = 0
 ```
 
-如果
-θ
-=
-[
-0
-;
-0
-]
-
 ```matlab
 >> theta = [0; 0]
 theta =
@@ -1047,6 +1177,4 @@ theta =
 ans =  2.3333
 ```
 
-向量化
-Vectorization
-
+## 向量化
