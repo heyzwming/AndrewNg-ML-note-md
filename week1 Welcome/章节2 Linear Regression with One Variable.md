@@ -5,13 +5,21 @@
 
 ## 6、Model Representation(模型描述)
 
-回归:将变量映射到某一个连续函数上。
+回归:将变量映射到某一个连续函数上，并预测实值输出。
 
 ![6.1](http://m.qpic.cn/psb?/V12umJF70r2BEK/CafuXmKosDXN.5FMGtIEq7n6ocrA1dXgyhPeYsX6wuI!/b/dDwBAAAAAAAA&bo=IQcDBAAAAAARBxE!&rf=viewer_4)
 
 这章我们将这个问题简单地量化为**单变量线性回归模型**(Univariate linear regression)来理解它。
 
-> To establish notation(建立符号) for future use, we’ll use $x^{(i)}$ to denote(表示) the **“input” variables** (living area in this example), also called **input features**, and $y^{(i)}$ to denote the **“output”** or **target variable** that we are trying to predict (price). A pair $(x^{(i)} , y^{(i)})$ is called **a training example**, and the dataset that we’ll be using to learn——a list of **m training examples** $(x^{(i)},y^{(i)})$; i=1,...,m—is called **a training set**. Note that the superscript(上标) “(i)” in the notation is simply an **index** into the training set, and has nothing to do with exponentiation. We will also use **X** to denote the space of input values, and **Y** to denote the space of output values. In this example, $X$ = $Y$ = $ℝ$.
+> To establish notation(建立符号) for future use, we’ll use $x^{(i)}$ to denote(表示) the **“input” variables** (living area in this example), also called **input features**,  
+>
+>  and $y^{(i)}$ to denote the **“output”** or **target variable** that we are trying to predict (price).  
+>
+>  A pair $(x^{(i)} , y^{(i)})$ is called **a training example**, and the dataset that we’ll be using to learn——a list of **m training examples** $(x^{(i)},y^{(i)})$; i=1,...,m—is called **a training set**. 
+>
+> Note that the superscript(上标) “$(i)$” in the notation is simply an **index** into the training set, and has nothing to do with exponentiation.
+> 
+>  We will also use **X** to denote the space of input values, and **Y** to denote the space of output values. In this example, $X$ = $Y$ = $ℝ$.
 
 我们有一堆数据集，也叫训练集，下图我们来定义一些课程中用到的符号。
 
@@ -23,38 +31,68 @@ $x^i$ = 第$i$个训练样本“输入”变量/特征量
 
 $​y^i$ = ​第$i$个训练样本“输出”变量/特征量
 
+$(x^{(i)} , y^{(i)})$ = 第$i$个训练示例
+
 ![6.2](http://m.qpic.cn/psb?/V12umJF70r2BEK/*ssrGbJhFGJCR0xMuxqlXZNyH.p.tXpTg3dWkqjX30o!/b/dIABAAAAAAAA&bo=NgcABAAAAAARFxU!&rf=viewer_4)
 
 
-> To describe the supervised learning problem slightly more formally, our goal is, given a training set, to learn a function $h$ : $X → Y$ so that h(x) is a “good” predictor for the corresponding(一致的) value of $y$. For historical reasons, this function $h$ is called a hypothesis. Seen pictorially, the process is therefore like this:
-
-
+> To describe the supervised learning problem slightly more formally, our goal is, **given a training set**, to **learn a function** $h$ : $X → Y$ so that h(x) is a “good” predictor for the corresponding(一致的) value of $y$.
+> 
+>  For historical reasons, this function $h$ is called a hypothesis(假设). Seen pictorially, the process is therefore like this:
+>
 > When the target variable that we’re trying to predict is continuous, such as in our housing example, we call the learning problem a regression problem. When y can take on only a small number of discrete values (such as if, given the living area, we wanted to predict if a dwelling is a house or an apartment, say), we call it a classification problem.
+
+如果我们要预测的目标变量是连续的，我们叫这类学习问题为回归问题，如果要预测的目标变量是连续的，我们叫这类学习问题为分类问题。
 
 如何给训练集下定义，先来看一下监督学习算法是怎么工作的.
 
 算法的任务是 输出一个函数，用小写字母$h$表示,$h$表示假设(hypothesis)函数,这个假设函数的作用是把房子的大小作为输入变量$x$值,并输出想应房子的预测$y$值。
 
-接下来人们的问题变成了如何表示假设函数
+接下来人们的问题变成了**如何表示假设函数**
+
+假设函数$h$就是我们需要的这个拟合函数。
 
 ![6.3](http://m.qpic.cn/psb?/V12umJF70r2BEK/h0A6gdlaZzTGT3IvEPpZHyFSAihJUIvzfNCyPbnxvl8!/b/dIUBAAAAAAAA&bo=Swf8AwAAAAARF5M!&rf=viewer_4)
 
-以及一个函数：
 
-$$h_θ(x)=θ_0+θ_1*x$$               (1.1)
+$$h_θ(x)=θ_0+θ_1*x$$            (1.1)
 其中h是hypothesis（假设）的意思，当然，这个词在机器学习的当前情况下并不是特别准确。θ是参数，我们要做的是通过训练使得θ的表现效果更好。
 这种模型被称为线性回归/单变量线性回归(Univariate linear regression)。
 
 
 ## 7、Cost Function(代价函数)
 
-> We can measure the accuracy of our hypothesis function by using a cost function. This takes an average difference (actually a fancier version of an average) of all the results of the hypothesis with inputs from x's and the actual output y's.
+> We can measure the accuracy(精度) of our hypothesis function by using a cost function.
+> 
+>  This takes an average difference (actually a fancier version of an average) of all the results of the hypothesis with inputs from x's and the actual output y's.
 
-(J(θ))
+本节中我们将定义代价函数的概念，这有助于我们弄清楚如何把最有可能的直线与我们的数据相拟合.这里的代价函数是通过计算假设函数预测的y值和实际值之间的差距，输出的y是假设函数$h$的精度/误差。
 
-> To break it apart, it is 1/2*x is the mean of the squares of h_θ(x_i) - y_i, or the difference between the predicted value and the actual value.
 
-This function is otherwise called the "Squared error function", or "Mean squared error". The mean is halved (1/2) as a convenience for the computation of the gradient descent, as the derivative term of the square function will cancel out the 1/2 term. The following image summarizes what the cost function does:
+
+在这个假设函数 $h_\theta(x)=\theta_0+\theta_1x$中，$\theta_0$ 和 $\theta_1$ 我们把他们称为**模型参数**，我们要做的就是如何选择这两个参数值$\theta_0$ 和 $\theta_1$.
+
+![7.1](http://m.qpic.cn/psb?/V12umJF70r2BEK/5FCPtEHttxyY9q5doh3MhFKYsLCsg*BuZY2dy4T1ftg!/b/dIUBAAAAAAAA&bo=CQfoAwAAAAARB9U!&rf=viewer_4)
+
+不同的$\theta$有不同的假设和不同的假设函数。
+
+![7.2](http://m.qpic.cn/psb?/V12umJF70r2BEK/icxayOXaOTc*FZZgoSudFYNi5FTs.M1ohkvRTMBhiG8!/b/dH4BAAAAAAAA&bo=Nwe9AwAAAAARF64!&rf=viewer_4)
+
+我们现在有了数据集，并且可以通过改变参数来调整$h$函数，那么，我们如何定义什么是“更好”的$h$函数呢?
+
+> 让我们给出标准的定义：在线性回归中，我们要解决的是一个最小化问题,所以我们要写出关于$\theta_0$和$\theta_1$的最小化，而且想要$h(x)$和y之间的差异尽可能小。即：通过调整$\theta$，使得所有训练集数据与其拟合数据的差的平方和更小，即认为得到了拟合度更好的函数。
+
+我们引入了代价函数(平方误差函数/平方误差代价函数)：
+
+$$ J(θ_0 ,θ_1)= \frac{1}{2m} \sum_{i=1}^{m}(h_\theta(x_i)-y_i)^2  $$
+
+
+> This function is otherwise called the "Squared error function"(平方误差函数), or "Mean squared error"(均方误差). The mean is halved(均分) $(\frac{1}{2})$ as a convenience for the computation of the gradient descent(便于计算梯度下降), as the derivative term of the square function will cancel out the $\frac{1}{2}$ term( $\frac{1}{2}$会在求导的时候被消去 ). 
+
+当代价函数$J$最小的时候(​minimize  $J(\theta_0, \theta_1)$)，即找到了对于当前训练集来说拟合度最高的函数h。
+
+![7.3](http://m.qpic.cn/psb?/V12umJF70r2BEK/XbJqwpVJTFTQMKOLdprtzZVqbY7VUq.ovRVREXtUNx4!/b/dPQAAAAAAAAA&bo=LAcfBAAAAAARFxA!&rf=viewer_4)
+
 
 ## 8、Cost Function-Intuition Ⅰ(代价函数Ⅰ)
 
@@ -170,27 +208,7 @@ The ellipses shown above are the contours of a quadratic function. Also shown is
 
 ## 课时7  代价函数   08:12
 
-> 本节中我们将定义代价函数的概念，这有助于我们弄清楚如何把最有可能的直线与我们的数据相拟合
 
-在这个假设函数h中，θ_i 我们把他们陈伟模型参数，我们要做的就是如何选择这两个参数值θ_0和θ_1.
-
-![7.1](http://m.qpic.cn/psb?/V12umJF70r2BEK/5FCPtEHttxyY9q5doh3MhFKYsLCsg*BuZY2dy4T1ftg!/b/dIUBAAAAAAAA&bo=CQfoAwAAAAARB9U!&rf=viewer_4)
-
-不同的θ有不同的假设和不同的假设函数。
-
-![7.2](http://m.qpic.cn/psb?/V12umJF70r2BEK/icxayOXaOTc*FZZgoSudFYNi5FTs.M1ohkvRTMBhiG8!/b/dH4BAAAAAAAA&bo=Nwe9AwAAAAARF64!&rf=viewer_4)
-
-我们现在有了数据集，并且可以通过改变参数来调整h函数，那么，我们如何定义什么是“更好”的h函数呢？
-> 让我们给出标准的定义：在线性回归中，我们要解决的是一个最小化问题,所以我们要写出关于θ_0和θ_1的最小化，而且想要h(x)和y之间的差异尽可能小。即：通过调整θ，使得所有训练集数据与其拟合数据的差的平方和更小，即认为得到了拟合度更好的函数。
-
-我们引入了代价函数(平方误差函数/平方误差代价函数)：
-![代价函数](http://m.qpic.cn/psb?/V12umJF70r2BEK/79Anu8a5sjwWb*iqijw6Ld*WNzrw9qN*zCLjt63TnPg!/b/dH4BAAAAAAAA&bo=kwJuAAAAAAARF98!&rf=viewer_4)
-
-注意，其中的12m取2m而非m当系数是为了后面梯度下降算法里，求导后消掉2.
-
-当代价函数J最小的时候(​minimize  $J(\Theta_0, \Theta_1)$)，即找到了对于当前训练集来说拟合度最高的函数h。
-
-![7.3](http://m.qpic.cn/psb?/V12umJF70r2BEK/XbJqwpVJTFTQMKOLdprtzZVqbY7VUq.ovRVREXtUNx4!/b/dPQAAAAAAAAA&bo=LAcfBAAAAAARFxA!&rf=viewer_4)
 
 ## 课时8  代价函数（一） 11:09
 回顾上节,并对其进行简化。
