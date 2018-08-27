@@ -207,8 +207,32 @@ $$= -\frac{1}{m}[\sum_{i=1}^m  y^{(i)}·log(h_\theta(x^{(i)}))+(1-y^{(i)})·log(
 
 ## 课时47  高级优化(Advanced Optimization)  14:06
 
+换个角度来看梯度下降.  
+我们有代价函数并且想要最小化代价函数，当给定一个$\theta$，我们的代码需要计算出$J(\theta)$和偏导,梯度下降算法的作用是反复执行这些更新.
 
+我们的思路是先用代码写出$J(\theta)$项和偏导项再代入到梯度下降算法中,然后它就可以为我们最小化这个函数
 
+![46.1](http://m.qpic.cn/psb?/V12umJF70r2BEK/ERF*fs2zvfVlUAnbp.1T3j07jln.1*eIY2XKbERslWk!/b/dPQAAAAAAAAA&bo=HARSAgAAAAARB3g!&rf=viewer_4)
+
+当然除了梯度下降算法，我们还有一些别的算法
+
+* 共轭梯度法(conjugate gradient )
+* BFGS
+* L-BFGS
+
+这三种算法的优缺点
+
+Advantages 
+
+* No need to manually pick α
+* Often faster than gradient descent 
+
+Disadvantages
+
+* More complex
+
+调用高级算法的例子
+![46.2](http://m.qpic.cn/psb?/V12umJF70r2BEK/9T4jjdDwR3Fk7K6dFK0LSB5oc.nPkzk98cZgqTnnJcg!/b/dNoAAAAAAAAA&bo=XARpAgAAAAARFxM!&rf=viewer_4)
 
 # Multiclass Classification
 
