@@ -134,17 +134,7 @@ Thus as a goal, we should try to minimize the cost function. In this case, $\the
 
 ## 9、Cost Function-Intuition Ⅱ(代价函数Ⅱ)
 
-A contour plot is a graph that contains many contour lines. A contour line of a two variable function has a constant value at all points of the same line. An example of such a graph is the one to the right below.
-
-
-Taking any color and going along the 'circle', one would expect to get the same value of the cost function. For example, the three green points found on the green line above have the same value for $J(\Theta_0, \Theta_1)$ and as a result, they are found along the same line. The circled x displays the value of the cost function for the graph on the left when $\Theta_0$ = 800 and $\Theta_1$ = -0.15.Taking another h(x) and plotting its contour plot, one gets the following graphs:
-
-
-When $\Theta_0$ = 360 and $\Theta_1$ = 0,the value of $J(\Theta_0, \Theta_1)$ in the contour plot gets closer to the center thus reducing the cost function error. Now giving our hypothesis function a slightly positive slope results in a better fit of the data.
-
-
-The graph above minimizes the cost function as much as possible and consequently, the result of θ_1 and θ_0 tend to be around 0.12 and 250 respectively. Plotting those values on our graph to the right seems to put our point in the center of the inner most 'circle'.
-
+A contour plot(等值线图) is a graph that contains many contour lines. A contour line of a two variable function has a constant value(常数值) at all points of the same line. An example of such a graph is the one to the right below.
 
 ![9.1](http://m.qpic.cn/psb?/V12umJF70r2BEK/nLM.TKYWs0Ue9TQFUe4eOs9v*5iC.QYpX1B6qzs7QHc!/b/dN8AAAAAAAAA&bo=sgbhAgAAAAARB2c!&rf=viewer_4)
 
@@ -156,10 +146,18 @@ The graph above minimizes the cost function as much as possible and consequently
 
 但是在下面我们会用等高线来展示这些曲面。
 
+Taking any color and going along the 'circle', one would expect to get the same value of the cost function. 
+
 其中的轴为θ_0和θ_1每一个椭圆展现了一系列$J(\Theta_0, \Theta_1)$值相等的点
 对于我们研究的单变量线性回归而言，J函数关于θ的等高线图像大致如下：
 ![9.4](http://m.qpic.cn/psb?/V12umJF70r2BEK/eT4eAgl87HazwFobDNZZqR3foUYno8g9vLibsAITPN4!/b/dAsBAAAAAAAA&bo=RAcBBAAAAAARF2Y!&rf=viewer_4)
+
+When $\theta_0$ = 360 and $\Theta_1$ = 0,the value of $J(\theta_0, \theta_1)$ in the contour plot gets closer to the center thus reducing the cost function error. Now giving our hypothesis function a slightly positive slope results in a better fit of the data.
+
 ![9.5](http://m.qpic.cn/psb?/V12umJF70r2BEK/OdVyC*TxXe4BaMvasyGjxnIBY6ElRSxRr6ecKRwgv6Q!/b/dOAAAAAAAAAA&bo=OAcQBAAAAAARFws!&rf=viewer_4)
+
+The graph above minimizes the cost function as much as possible and consequently, the result of θ_1 and θ_0 tend to be around 0.12 and 250 respectively. Plotting those values on our graph to the right seems to put our point in the center of the inner most 'circle'.
+
 ![9.6](http://m.qpic.cn/psb?/V12umJF70r2BEK/*KaPz8aNu*8U2opDTNqUJo006NODfBB9bywtCk1OjAY!/b/dIUBAAAAAAAA&bo=7wZeAwAAAAARF5Q!&rf=viewer_4)
 
 当我们找到了这些同心椭圆的中心点时，就找到了J函数的最小值，此时拟合度更好。
@@ -167,91 +165,86 @@ The graph above minimizes the cost function as much as possible and consequently
 ## Parameter Learning(参数学习)
 
 
-
 ## 10、Gradient Descent(梯度下降)
 
-So we have our hypothesis function and we have a way of measuring how well it fits into the data. Now we need to estimate the parameters in the hypothesis function. That's where gradient descent comes in.
+> So we have our hypothesis function and we have a way of measuring how well it fits into the data. Now we need to estimate(估计) the parameters in the hypothesis function. That's where gradient descent comes in.
 
-Imagine that we graph our hypothesis function based on its fields $\Theta_0$ and $\Theta_1$ (actually we are graphing the cost function as a function of the parameter estimates). We are not graphing x and y itself, but the parameter range of our hypothesis function and the cost resulting from selecting a particular set of parameters.
+> 梯度下降算法可以应用于更一般的($\theta_0 -> \theta_n$)，但为了简便符号，我们只使用 $\theta_0$ 和 $\theta_1$
 
-We put $\theta_0$ on the x axis and $\Theta_1$ on the y axis, with the cost function on the vertical z axis. The points on our graph will be the result of the cost function using our hypothesis with those specific theta parameters. The graph below depicts such a setup.
-
-
-We will know that we have succeeded when our cost function is at the very bottom of the pits in our graph, i.e. when its value is the minimum. The red arrows show the minimum points in the graph.
-
-The way we do this is by taking the derivative (the tangential line to a function) of our cost function. The slope of the tangent is the derivative at that point and it will give us a direction to move towards. We make steps down the cost function in the direction with the steepest descent. The size of each step is determined by the parameter α, which is called the learning rate.
-
-For example, the distance between each 'star' in the graph above represents a step determined by our parameter α. A smaller α would result in a smaller step and a larger α results in a larger step. The direction in which the step is taken is determined by the partial derivative of $J(\theta_0,\theta_1)$. Depending on where one starts on the graph, one could end up at different points. The image above shows us two different starting points that end up in two different places.
-
-The gradient descent algorithm is:
-
-repeat until convergence:
-
-$$\theta_j := \theta_j - \alpha \frac{\partial}{\partial \theta_j} J(\theta_0, \theta_1)$$
-where
-
-j=0,1 represents the feature index number.
-
-At each iteration j, one should simultaneously update the parameters $\Theta_1$, $\Theta_2$,...,$\Theta_n$. Updating a specific parameter prior to calculating another one on the $j^{(th)}$ iteration would yield to a wrong implementation.
-
-> 梯度下降算法可以应用于更一般的(θ_0 -> θ_n)，但为了简便符号，我们只使用θ_0和 θ_1
-
-梯度下降算法：我们先初始化θ_0和 θ_1为0,或者随意从某个(θ_0和 θ_1)出发，然后不断尝试梯度地改变θ_0和 θ_1，来减小代价函数J的值，逐步逼近代价函数J的最小值。
+梯度下降算法：我们先初始化$\theta_0$和 $\theta_1$为0,或者随意从某个($\theta_0$和 $\theta_1$)出发，然后不断尝试梯度地改变$\theta_0$和 $\theta_1$，来减小代价函数$J$的值，逐步逼近代价函数$J$的最小值。
 
 ![10.1](http://m.qpic.cn/psb?/V12umJF70r2BEK/eCDTH4rulqnrMeOCRiMehVPzskoUaGrOXO0u*M.kOjU!/b/dIABAAAAAAAA&bo=tAbAAwAAAAARB0E!&rf=viewer_4)
 
 来看一个例子，假设我们随意初始化了一个值，我们站在这个图的某个高点，环顾四周，找到一条下降最快的路线，直到收敛至局部最低点。
 
 > 梯度下降有个有趣的特点，第一次运行梯度下降法时，如果起点向右一点，梯度下降算法会得到一个完全不同的局部最优解。
+
+The way we do this is by taking the derivative(求导) (the tangential line(切线) to a function) of our cost function. The slope(斜率)) of the tangent is the derivative at that point and it will give us a direction to move towards. We make steps down the cost function in the direction with the steepest(最陡的) descent. The size of each step is determined by the parameter $α$, which is called the learning rate.
+
 ![10.2](http://m.qpic.cn/psb?/V12umJF70r2BEK/vxOK6zUV4j*XGUh*fCsHLTuvoS9uvm*ldUrgrDMxr.I!/b/dA0BAAAAAAAA&bo=AAY8AwAAAAARFxk!&rf=viewer_4)
 ![10.3](http://m.qpic.cn/psb?/V12umJF70r2BEK/V4ou0V6gS6bi9D4abcUxbJY4r.zcmIx.YT4ZgbyzWIg!/b/dOAAAAAAAAAA&bo=9wUHAwAAAAARF9Y!&rf=viewer_4)
 
+For example, the distance between each 'star' in the graph above represents a step determined by our parameter α. A smaller α would result in a smaller step and a larger α results in a larger step. The direction in which the step is taken is determined by the partial derivative of $J(\theta_0,\theta_1)$. Depending on where one starts on the graph, one could end up at different points. The image above shows us two different starting points that end up in two different places.
+
 接下来看下算法的原理
 
+repeat until convergence:
+
+$$\theta_j := \theta_j - \alpha \frac{\partial}{\partial \theta_j} J(\theta_0, \theta_1)$$
+
+where j=0,1 represents the feature index number.
+
+At each iteration j, one should simultaneously update the parameters $\Theta_1$, $\Theta_2$,...,$\Theta_n$. Updating a specific parameter prior to calculating another one on the $j^{(th)}$ iteration would yield to a wrong implementation.
 
 
 ![算法原理10.4](http://m.qpic.cn/psb?/V12umJF70r2BEK/HVJGCpuZJIewxFJ4sjD0L4USLZhvQabMwj4L*.MvfhM!/b/dPQAAAAAAAAA&bo=TQcjBAAAAAARF00!&rf=viewer_4)
 
-:= 表示赋值
-α 表示 learning rate 即梯度下降的速率\多大的幅度更新参数θ_j
+$:=$ 表示赋值
 
-实现 梯度下降算法的微妙之处 是 ,对于这个表达式(更新方程)，你需要同时更新(simultaneously update)θ_0 和 θ_1,即θ_0更新为θ_0减去某项，θ_1同理。
+$α$ 表示 learning rate 即梯度下降的速率\多大的幅度更新参数$\theta_j$
 
-要注意到，正确的梯度下降算法是要把θ_0 和 θ_1同步更新，而不是像Incorrect中的这样，因为会改变代价函数J的值，导致生成的temp1出错。
+实现 梯度下降算法的微妙之处 是 ,对于这个表达式(更新方程)，你需要同时更新(simultaneously update)$\theta_0$ 和 $\theta_1$,即$\theta_0$更新为$\theta_0$减去某项，$\theta_1$同理,而不是像Incorrect中的这样，因为会改变代价函数J的值，导致生成的temp1出错。
 
 ## 11、Gradient Descent Intuition(梯度下降的直觉)
 
-In this video we explored the scenario where we used one parameter $\theta_1$
-​	  and plotted its cost function to implement a gradient descent. Our formula for a single parameter was :
+
+先看下上节课的这个更新表达式
 
 Repeat until convergence:
 
-$\theta_1:=\theta_1-\alpha \frac{d}{d\theta_1} J(\theta_1)$
-Regardless of the slope's sign for $\frac{d}{d\theta_1} J(\theta_1)$, $\theta_1$ eventually converges to its minimum value. The following graph shows that when the slope is negative, the value of $\theta_1$ increases and when it is positive, the value of $\theta_1$ decreases.
+$$\theta_1:=\theta_1-\alpha \frac{d}{d\theta_1} J(\theta_1)$$
+
+Regardless of the slope's sign for $\frac{d}{d\theta_1} J(\theta_1)$, $\theta_1$ eventually converges to its minimum value. 
 
 
-On a side note, we should adjust our parameter \alphaα to ensure that the gradient descent algorithm converges in a reasonable time. Failure to converge or too much time to obtain the minimum value imply that our step size is wrong.
-
-
-How does gradient descent converge with a fixed step size $\alpha$?
-The intuition behind the convergence is that $\frac{d}{d\theta_1}$$J(\theta_1)$ approaches 0 as we approach the bottom of our convex function. At the minimum, the derivative will always be 0 and thus we get:
-
-$\theta_1:=\theta_1-\alpha * 0$
-先看下上节课的这个更新表达式
 ![11.1更新表达式](http://m.qpic.cn/psb?/V12umJF70r2BEK/z5vuB1.2jpp32YLo9E1ODUSJWZ6M7yRZKNG1YeovF38!/b/dA0BAAAAAAAA&bo=KAYDAwAAAAARBx4!&rf=viewer_4)
 
 下面解释下导数项的意义
-当θ大于最小值时，导数为正，那么迭代公式里，θ减去一个正数，向左往最小值逼近；
-当θ小于最小值时，导数为负，那么迭代公式​里，θ减去一个负数，向右往最小值逼近；
+
+The following graph shows that when the slope is negative, the value of $\theta_1$ increases and when it is positive, the value of $\theta_1$ decreases.
+
+当$\theta$大于最小值时，导数为正，那么迭代公式里，$\theta$减去一个正数，向左往最小值逼近；
+
+当$\theta$小于最小值时，导数为负，那么迭代公式​里，$\theta$减去一个负数，向右往最小值逼近；
+
 ![11.2导数项的意义](http://m.qpic.cn/psb?/V12umJF70r2BEK/W4sZ0OBiKFOmqN2o5hyahVp6AwFmGDoebk56oUgzFLI!/b/dNoAAAAAAAAA&bo=7wYNBAAAAAARF8A!&rf=viewer_4)
 
-还有学习速率α的作用:
-如果α太小，梯度下降的速度可能很慢
-α太大则会一次次越过最低点,它会导致无法收敛甚至发散。
+学习速率$α$的作用:
+如果$α$太小，梯度下降的速度可能很慢
+$α$太大则会一次次越过最低点,它会导致无法收敛甚至发散。
+
 ![11.3α的作用](http://m.qpic.cn/psb?/V12umJF70r2BEK/uHuIE1qRJEJsHdxqaoKtAFY6IqJsFOe8BCJeLcPe3yg!/b/dN4AAAAAAAAA&bo=.AbuAwAAAAARFzM!&rf=viewer_4)
 
-如果θ_1已经处在一个局部最有点，下一步梯度下降会怎样？ 
-显然，θ_1不再改变。
+How does gradient descent converge with a fixed step size $\alpha$?
+
+The intuition(直觉) behind the convergence(收敛) is that $\frac{d}{d\theta_1}$$J(\theta_1)$ approaches 0 as we approach the bottom of our convex function. At the minimum, the derivative will always be 0 and thus we get:
+
+$\theta_1:=\theta_1-\alpha * 0$
+
+
+如果$\theta_1$已经处在一个局部最优点，下一步梯度下降会怎样？ 
+显然，$\theta_1$不再改变。
+
 ![11.4](http://m.qpic.cn/psb?/V12umJF70r2BEK/Af3DFL6qej6WcZO0Bce.hP0FsKIH.tNQdyxzeIJzR0w!/b/dN0AAAAAAAAA&bo=nwX0AgAAAAARF0w!&rf=viewer_4)
 
 当我们接近局部最低时，导数值会自动变得越来越小,所以梯度下降将自动采取较小的幅度,这就是梯度下降的运行方式。
