@@ -234,9 +234,43 @@ Disadvantages
 调用高级算法的例子
 ![46.2](http://m.qpic.cn/psb?/V12umJF70r2BEK/9T4jjdDwR3Fk7K6dFK0LSB5oc.nPkzk98cZgqTnnJcg!/b/dNoAAAAAAAAA&bo=XARpAgAAAAARFxM!&rf=viewer_4)
 
+
+
+你要做的就是写要给函数，它能返回代价函数值以及梯度值，把这个应用于Logistic回归中。
+
+![46.3](http://a4.qpic.cn/psb?/V12umJF70r2BEK/fBZ3NoKr5EDhkb8hgUTYVLLCM4MFEQmBb.oIlkoMz04!/b/dN8AAAAAAAAA&ek=1&kp=1&pt=0&bo=.wNeAgAAAAARF4Q!&tl=3&vuin=904260897&tm=1535378400&sce=60-2-2&rf=viewer_4)
+
+
 # Multiclass Classification
 
 ## 课时48  多元分类：一对多(Multiclass Classification:One vs all)  06:15
+
+在多类别分类问题中，y可以取多个离散值。例如
+
+* Email foldering/tagging:Work(y=1),Friends(y=2),Family(y=3),Hobby(y=4)
+* Medical diagrams:Not ill(y=1),Cold(y=2),Flu(y=3)
+* Weather:Sunny(y=1),Cloudy(y=2),Rainy(y=3),Snow(y=4)
+
+给出包含三个类别的数据集，我们如何得到一个学习算法进行分类呢？
+
+![48.1](http://m.qpic.cn/psb?/V12umJF70r2BEK/MVQNIgh.aIILA*Td5484OJhsvo37EDTBP8AmQzA*QY4!/b/dA0BAAAAAAAA&bo=LwQqAgAAAAARBzM!&rf=viewer_4)
+
+
+接下来介绍一对多分类的原理：
+
+我们有一堆数据集，有三个分类，用三角形表示y=1，正方形表示y=2，叉叉角标y=3
+我们要做的就是把这个训练集转化为三个独立的二元分类问题  
+
+我们将创建一个新的“伪”训练集，其中类别2和类别3设定为负类，类别1设定为正类，我们要拟合一个分类器，我们称其为$h_\theta^{(1)}(x)$,然后进行正常的二元分类问题。
+
+再对其他类别进行同样的操作
+
+我们有三个分类器，每个分类器都针对其中一种情况进行训练。
+![48.2](http://m.qpic.cn/psb?/V12umJF70r2BEK/Gp2P.j6hagHlmyEuHlX3xB44MhanA*T5GXWmf11M9WA!/b/dN4AAAAAAAAA&bo=RQRwAgAAAAARFxM!&rf=viewer_4)
+
+我们训练了一个逻辑回归分类器$h_\theta^{(i)}(x)$，为每一个i类别预测出一个y=i的概率，最后为了做出预测，我们给出一个新的输入值x期望获得预测，我们输入一个x，然后选择h最大的类别，也就是选择出三个中可信度最高效果最好的分类器，我们就能得到一个最高的概率，我们预测的y就是那个概率。
+![48.3](http://m.qpic.cn/psb?/V12umJF70r2BEK/BIGNcIFGBzb8sEV1PpjpiKAVtXw5..yQaXaF0pkgQyk!/b/dPQAAAAAAAAA&bo=JQRSAgAAAAARF1E!&rf=viewer_4) 
+
 
 
 
