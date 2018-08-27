@@ -96,19 +96,40 @@ $$ J(θ_0 ,θ_1)= \frac{1}{2m} \sum_{i=1}^{m}(h_\theta(x_i)-y_i)^2  $$
 
 ## 8、Cost Function-Intuition Ⅰ(代价函数Ⅰ)
 
-> If we try to think of it in visual terms, our training data set is scattered on the x-y plane. We are trying to make a straight line h_theta(x) which passes through these scattered data points.
+> If we try to think of it in visual terms(视觉层面), our training data set is scattered(散乱的) on the x-y plane. We are trying to make a straight line $h_\theta(x)$ which passes through these scattered data points.
 
-Our objective is to get the best possible line. The best possible line will be such so that the average squared vertical distances of the scattered points from the line will be the least. Ideally, the line should pass through all the points of our training data set. In such a case, the value of $J(\Theta_0, \Theta_1)$ will be 0. The following example shows the ideal situation where we have a cost function of 0.
+回顾上节,并对假设函数$h$进行简化。
 
+![8.1](http://m.qpic.cn/psb?/V12umJF70r2BEK/J9h77OYuMvj2nFjKYSL1X0WvOPqtmTmbNkSZhbu8Fgk!/b/dNoAAAAAAAAA&bo=Ege9AwAAAAARB5s!&rf=viewer_4)
 
-When $\Theta_1$ = 1 we get a slope of 1 which goes through every single data point in our model. Conversely, when $\Theta_1$ = 0.5\, we see the vertical distance from our fit to the data points increase.
-
-
-This increases our cost function to 0.58. Plotting several other points yields to the following graph:
+Our objective is to get the best possible line. The best possible line will be such so that the average squared vertical distances of the scattered points from the line will be the least(散点与直线的平均垂直距离的平方最小。). Ideally(理想地), the line should pass through all the points of our training data set. In such a case, the value of $J(\theta_0, \theta_1)$ will be 0. The following example shows the ideal situation where we have a cost function of 0.
 
 
-Thus as a goal, we should try to minimize the cost function. In this case, $\Theta_1$ = 1 is our global minimum.
 
+比较以下假设函数h和代价函数J
+画出他们的图，以便更好地理解
+
+When $\theta_1$ = 1 we get a slope of 1 which goes through every single data point in our model. 
+
+当$\theta$为1时,代价函数$J(\theta) = 0$,左边假设函数$h$的曲线完美拟合数据集。
+
+![8.2](http://m.qpic.cn/psb?/V12umJF70r2BEK/NGbgcTahmGGLFV5tLtchMhX4AOWGDCBRH5fKZxDX0VY!/b/dA0BAAAAAAAA&bo=WAcDBAAAAAARB2g!&rf=viewer_4)
+
+Conversely, when $\theta_1$ = 0.5\, we see the vertical distance from our fit to the data points increase.This increases our cost function to 0.58.
+
+当$\theta$为0.5时
+
+![8.3](http://m.qpic.cn/psb?/V12umJF70r2BEK/ZIdWw4ioXH0wZB2YJlvZ.qV6GTphfo2Lo0x49bf058w!/b/dAsAAAAAAAAA&bo=TQf8AwAAAAARF5U!&rf=viewer_4)
+
+ Plotting several other points yields to the following graph
+
+当$\theta$为0时,最后可以预测到如下的代价函数$J(\theta)$的图像
+
+![8.4](http://m.qpic.cn/psb?/V12umJF70r2BEK/DWzkwVQAeBdbMdW5WXBocWYXrOpf9K82FnEwRXVVnmA!/b/dNoAAAAAAAAA&bo=TAcVBAAAAAARF3o!&rf=viewer_4)
+\
+Thus as a goal, we should try to minimize the cost function. In this case, $\theta_1$ = 1 is our global minimum.
+
+对于每一个θ，都可以得到一个不同的$J(\theta)$的值，也对应了一个不同的假设函数,对应左侧一条不同的直线和拟合程度。
 
 
 ## 9、Cost Function-Intuition Ⅱ(代价函数Ⅱ)
@@ -123,6 +144,25 @@ When $\Theta_0$ = 360 and $\Theta_1$ = 0,the value of $J(\Theta_0, \Theta_1)$ in
 
 
 The graph above minimizes the cost function as much as possible and consequently, the result of θ_1 and θ_0 tend to be around 0.12 and 250 respectively. Plotting those values on our graph to the right seems to put our point in the center of the inner most 'circle'.
+
+
+![9.1](http://m.qpic.cn/psb?/V12umJF70r2BEK/nLM.TKYWs0Ue9TQFUe4eOs9v*5iC.QYpX1B6qzs7QHc!/b/dN8AAAAAAAAA&bo=sgbhAgAAAAARB2c!&rf=viewer_4)
+
+我们通过假设函数h和代价函数J来理解代价函数。
+
+因为在本节中的代价函数J有两个变量θ_0和θ_1，所以在平面上无法得到J的图形。
+![9.2](http://m.qpic.cn/psb?/V12umJF70r2BEK/q0VkyJ.2Yw8xEMQGhFr2A5rBzqy2IIIQMxgk139n1tQ!/b/dPQAAAAAAAAA&bo=VgcQBAAAAAARF2U!&rf=viewer_4)
+![9.3](http://m.qpic.cn/psb?/V12umJF70r2BEK/WEG8jhan61YQTVb.czTMzHfAYBB2Vqp2qkWGXgR5FyQ!/b/dAsBAAAAAAAA&bo=aAbbAwAAAAARF5Y!&rf=viewer_4)
+
+但是在下面我们会用等高线来展示这些曲面。
+
+其中的轴为θ_0和θ_1每一个椭圆展现了一系列$J(\Theta_0, \Theta_1)$值相等的点
+对于我们研究的单变量线性回归而言，J函数关于θ的等高线图像大致如下：
+![9.4](http://m.qpic.cn/psb?/V12umJF70r2BEK/eT4eAgl87HazwFobDNZZqR3foUYno8g9vLibsAITPN4!/b/dAsBAAAAAAAA&bo=RAcBBAAAAAARF2Y!&rf=viewer_4)
+![9.5](http://m.qpic.cn/psb?/V12umJF70r2BEK/OdVyC*TxXe4BaMvasyGjxnIBY6ElRSxRr6ecKRwgv6Q!/b/dOAAAAAAAAAA&bo=OAcQBAAAAAARFws!&rf=viewer_4)
+![9.6](http://m.qpic.cn/psb?/V12umJF70r2BEK/*KaPz8aNu*8U2opDTNqUJo006NODfBB9bywtCk1OjAY!/b/dIUBAAAAAAAA&bo=7wZeAwAAAAARF5Q!&rf=viewer_4)
+
+当我们找到了这些同心椭圆的中心点时，就找到了J函数的最小值，此时拟合度更好。
 
 ## Parameter Learning(参数学习)
 
@@ -154,6 +194,31 @@ j=0,1 represents the feature index number.
 
 At each iteration j, one should simultaneously update the parameters $\Theta_1$, $\Theta_2$,...,$\Theta_n$. Updating a specific parameter prior to calculating another one on the $j^{(th)}$ iteration would yield to a wrong implementation.
 
+> 梯度下降算法可以应用于更一般的(θ_0 -> θ_n)，但为了简便符号，我们只使用θ_0和 θ_1
+
+梯度下降算法：我们先初始化θ_0和 θ_1为0,或者随意从某个(θ_0和 θ_1)出发，然后不断尝试梯度地改变θ_0和 θ_1，来减小代价函数J的值，逐步逼近代价函数J的最小值。
+
+![10.1](http://m.qpic.cn/psb?/V12umJF70r2BEK/eCDTH4rulqnrMeOCRiMehVPzskoUaGrOXO0u*M.kOjU!/b/dIABAAAAAAAA&bo=tAbAAwAAAAARB0E!&rf=viewer_4)
+
+来看一个例子，假设我们随意初始化了一个值，我们站在这个图的某个高点，环顾四周，找到一条下降最快的路线，直到收敛至局部最低点。
+
+> 梯度下降有个有趣的特点，第一次运行梯度下降法时，如果起点向右一点，梯度下降算法会得到一个完全不同的局部最优解。
+![10.2](http://m.qpic.cn/psb?/V12umJF70r2BEK/vxOK6zUV4j*XGUh*fCsHLTuvoS9uvm*ldUrgrDMxr.I!/b/dA0BAAAAAAAA&bo=AAY8AwAAAAARFxk!&rf=viewer_4)
+![10.3](http://m.qpic.cn/psb?/V12umJF70r2BEK/V4ou0V6gS6bi9D4abcUxbJY4r.zcmIx.YT4ZgbyzWIg!/b/dOAAAAAAAAAA&bo=9wUHAwAAAAARF9Y!&rf=viewer_4)
+
+接下来看下算法的原理
+
+
+
+![算法原理10.4](http://m.qpic.cn/psb?/V12umJF70r2BEK/HVJGCpuZJIewxFJ4sjD0L4USLZhvQabMwj4L*.MvfhM!/b/dPQAAAAAAAAA&bo=TQcjBAAAAAARF00!&rf=viewer_4)
+
+:= 表示赋值
+α 表示 learning rate 即梯度下降的速率\多大的幅度更新参数θ_j
+
+实现 梯度下降算法的微妙之处 是 ,对于这个表达式(更新方程)，你需要同时更新(simultaneously update)θ_0 和 θ_1,即θ_0更新为θ_0减去某项，θ_1同理。
+
+要注意到，正确的梯度下降算法是要把θ_0 和 θ_1同步更新，而不是像Incorrect中的这样，因为会改变代价函数J的值，导致生成的temp1出错。
+
 ## 11、Gradient Descent Intuition(梯度下降的直觉)
 
 In this video we explored the scenario where we used one parameter $\theta_1$
@@ -172,6 +237,26 @@ How does gradient descent converge with a fixed step size $\alpha$?
 The intuition behind the convergence is that $\frac{d}{d\theta_1}$$J(\theta_1)$ approaches 0 as we approach the bottom of our convex function. At the minimum, the derivative will always be 0 and thus we get:
 
 $\theta_1:=\theta_1-\alpha * 0$
+先看下上节课的这个更新表达式
+![11.1更新表达式](http://m.qpic.cn/psb?/V12umJF70r2BEK/z5vuB1.2jpp32YLo9E1ODUSJWZ6M7yRZKNG1YeovF38!/b/dA0BAAAAAAAA&bo=KAYDAwAAAAARBx4!&rf=viewer_4)
+
+下面解释下导数项的意义
+当θ大于最小值时，导数为正，那么迭代公式里，θ减去一个正数，向左往最小值逼近；
+当θ小于最小值时，导数为负，那么迭代公式​里，θ减去一个负数，向右往最小值逼近；
+![11.2导数项的意义](http://m.qpic.cn/psb?/V12umJF70r2BEK/W4sZ0OBiKFOmqN2o5hyahVp6AwFmGDoebk56oUgzFLI!/b/dNoAAAAAAAAA&bo=7wYNBAAAAAARF8A!&rf=viewer_4)
+
+还有学习速率α的作用:
+如果α太小，梯度下降的速度可能很慢
+α太大则会一次次越过最低点,它会导致无法收敛甚至发散。
+![11.3α的作用](http://m.qpic.cn/psb?/V12umJF70r2BEK/uHuIE1qRJEJsHdxqaoKtAFY6IqJsFOe8BCJeLcPe3yg!/b/dN4AAAAAAAAA&bo=.AbuAwAAAAARFzM!&rf=viewer_4)
+
+如果θ_1已经处在一个局部最有点，下一步梯度下降会怎样？ 
+显然，θ_1不再改变。
+![11.4](http://m.qpic.cn/psb?/V12umJF70r2BEK/Af3DFL6qej6WcZO0Bce.hP0FsKIH.tNQdyxzeIJzR0w!/b/dN0AAAAAAAAA&bo=nwX0AgAAAAARF0w!&rf=viewer_4)
+
+当我们接近局部最低时，导数值会自动变得越来越小,所以梯度下降将自动采取较小的幅度,这就是梯度下降的运行方式。
+
+![11.5](http://m.qpic.cn/psb?/V12umJF70r2BEK/JiZJr.gdHJZJHjqVgvM*kVNNXiYDfKo8n3.l.u98iYA!/b/dPQAAAAAAAAA&bo=cQUQAwAAAAARF0c!&rf=viewer_4)
 
 ## 12、Gradient Descent For Linear Regression(线性回归的梯度下降法)
 
@@ -201,104 +286,6 @@ So, this is simply gradient descent on the original cost function J. This method
 The ellipses shown above are the contours of a quadratic function. Also shown is the trajectory taken by gradient descent, which was initialized at (48,30). The x’s in the figure (joined by straight lines) mark the successive values of θ that gradient descent went through as it converged to its minimum.
 
 
-
-## 13、Review
-
-
-
-## 课时7  代价函数   08:12
-
-
-
-## 课时8  代价函数（一） 11:09
-回顾上节,并对其进行简化。
-![8.1](http://m.qpic.cn/psb?/V12umJF70r2BEK/J9h77OYuMvj2nFjKYSL1X0WvOPqtmTmbNkSZhbu8Fgk!/b/dNoAAAAAAAAA&bo=Ege9AwAAAAARB5s!&rf=viewer_4)
-
-比较以下假设函数h和代价函数J
-画出他们的图，以便更好地理解
-
-当θ为1时
-![8.2](http://m.qpic.cn/psb?/V12umJF70r2BEK/NGbgcTahmGGLFV5tLtchMhX4AOWGDCBRH5fKZxDX0VY!/b/dA0BAAAAAAAA&bo=WAcDBAAAAAARB2g!&rf=viewer_4)
-当θ为0.5时
-![8.3](http://m.qpic.cn/psb?/V12umJF70r2BEK/ZIdWw4ioXH0wZB2YJlvZ.qV6GTphfo2Lo0x49bf058w!/b/dAsAAAAAAAAA&bo=TQf8AwAAAAARF5U!&rf=viewer_4)
-当θ为0时,可以预测到如下的函数图像
-![8.4](http://m.qpic.cn/psb?/V12umJF70r2BEK/DWzkwVQAeBdbMdW5WXBocWYXrOpf9K82FnEwRXVVnmA!/b/dNoAAAAAAAAA&bo=TAcVBAAAAAARF3o!&rf=viewer_4)
-对于每一个θ，都对应了一个不同的假设函数,对应左侧一条不同的直线,每一个θ都可以得到一个不同的J(θ)的值
-
-## 课时9  代价函数（二） 08:48
-
-![9.1]()
-
-我们通过假设函数h和代价函数J来理解代价函数。
-
-因为在本节中的代价函数J有两个变量θ_0和θ_1，所以在平面上无法得到J的图形。
-![9.2]()
-![9.3]()
-
-但是在下面我们会用等高线来展示这些曲面。
-
-其中的轴为θ_0和θ_1每一个椭圆展现了一系列$J(\Theta_0, \Theta_1)$值相等的点
-对于我们研究的单变量线性回归而言，J函数关于θ的等高线图像大致如下：
-![9.4]()
-![9.5]()
-![9.6]()
-
-当我们找到了这些同心椭圆的中心点时，就找到了J函数的最小值，此时拟合度更好。
-
-## Parameter Learning
-
-## 课时10  梯度下降(Gradient descent)  11:30
-
-> 梯度下降算法可以应用于更一般的(θ_0 -> θ_n)，但为了简便符号，我们只使用θ_0和 θ_1
-
-梯度下降算法：我们先初始化θ_0和 θ_1为0,或者随意从某个(θ_0和 θ_1)出发，然后不断尝试梯度地改变θ_0和 θ_1，来减小代价函数J的值，逐步逼近代价函数J的最小值。
-
-![10.1](http://m.qpic.cn/psb?/V12umJF70r2BEK/eCDTH4rulqnrMeOCRiMehVPzskoUaGrOXO0u*M.kOjU!/b/dIABAAAAAAAA&bo=tAbAAwAAAAARB0E!&rf=viewer_4)
-
-来看一个例子，假设我们随意初始化了一个值，我们站在这个图的某个高点，环顾四周，找到一条下降最快的路线，直到收敛至局部最低点。
-
-> 梯度下降有个有趣的特点，第一次运行梯度下降法时，如果起点向右一点，梯度下降算法会得到一个完全不同的局部最优解。
-![10.2](http://m.qpic.cn/psb?/V12umJF70r2BEK/vxOK6zUV4j*XGUh*fCsHLTuvoS9uvm*ldUrgrDMxr.I!/b/dA0BAAAAAAAA&bo=AAY8AwAAAAARFxk!&rf=viewer_4)
-![10.3](http://m.qpic.cn/psb?/V12umJF70r2BEK/V4ou0V6gS6bi9D4abcUxbJY4r.zcmIx.YT4ZgbyzWIg!/b/dOAAAAAAAAAA&bo=9wUHAwAAAAARF9Y!&rf=viewer_4)
-
-接下来看下算法的原理
-
-
-
-![算法原理10.4](http://m.qpic.cn/psb?/V12umJF70r2BEK/HVJGCpuZJIewxFJ4sjD0L4USLZhvQabMwj4L*.MvfhM!/b/dPQAAAAAAAAA&bo=TQcjBAAAAAARF00!&rf=viewer_4)
-
-:= 表示赋值
-α 表示 learning rate 即梯度下降的速率\多大的幅度更新参数θ_j
-
-实现 梯度下降算法的微妙之处 是 ,对于这个表达式(更新方程)，你需要同时更新(simultaneously update)θ_0 和 θ_1,即θ_0更新为θ_0减去某项，θ_1同理。
-
-要注意到，正确的梯度下降算法是要把θ_0 和 θ_1同步更新，而不是像Incorrect中的这样，因为会改变代价函数J的值，导致生成的temp1出错。
-
-## 课时11  梯度下降知识点总结(Gradient descent intuition)    11:50
-
-先看下上节课的这个更新表达式
-![11.1更新表达式](http://m.qpic.cn/psb?/V12umJF70r2BEK/z5vuB1.2jpp32YLo9E1ODUSJWZ6M7yRZKNG1YeovF38!/b/dA0BAAAAAAAA&bo=KAYDAwAAAAARBx4!&rf=viewer_4)
-
-下面解释下导数项的意义
-当θ大于最小值时，导数为正，那么迭代公式里，θ减去一个正数，向左往最小值逼近；
-当θ小于最小值时，导数为负，那么迭代公式​里，θ减去一个负数，向右往最小值逼近；
-![11.2导数项的意义](http://m.qpic.cn/psb?/V12umJF70r2BEK/W4sZ0OBiKFOmqN2o5hyahVp6AwFmGDoebk56oUgzFLI!/b/dNoAAAAAAAAA&bo=7wYNBAAAAAARF8A!&rf=viewer_4)
-
-还有学习速率α的作用:
-如果α太小，梯度下降的速度可能很慢
-α太大则会一次次越过最低点,它会导致无法收敛甚至发散。
-![11.3α的作用](http://m.qpic.cn/psb?/V12umJF70r2BEK/uHuIE1qRJEJsHdxqaoKtAFY6IqJsFOe8BCJeLcPe3yg!/b/dN4AAAAAAAAA&bo=.AbuAwAAAAARFzM!&rf=viewer_4)
-
-如果θ_1已经处在一个局部最有点，下一步梯度下降会怎样？ 
-显然，θ_1不再改变。
-![11.4](http://m.qpic.cn/psb?/V12umJF70r2BEK/Af3DFL6qej6WcZO0Bce.hP0FsKIH.tNQdyxzeIJzR0w!/b/dN0AAAAAAAAA&bo=nwX0AgAAAAARF0w!&rf=viewer_4)
-
-当我们接近局部最低时，导数值会自动变得越来越小,所以梯度下降将自动采取较小的幅度,这就是梯度下降的运行方式。
-
-![11.5](http://m.qpic.cn/psb?/V12umJF70r2BEK/JiZJr.gdHJZJHjqVgvM*kVNNXiYDfKo8n3.l.u98iYA!/b/dPQAAAAAAAAA&bo=cQUQAwAAAAARF0c!&rf=viewer_4)
-
-
-## 课时12  线性回归的梯度下降    10:20
 本节，我们要将梯度下降和代价函数结合,得到线性回归的算法,它可以用直线模型来拟合数据。
 下图是 梯度下降法 和 线性回归模型(包括线性假设和平方差代价函数)
 ![12.1](http://m.qpic.cn/psb?/V12umJF70r2BEK/9jMFxpwtfFuBPv7i*11Vhyd0rgU8o7zMUu4uJZ*XNhA!/b/dOAAAAAAAAAA&bo=lwXqAgAAAAARB0o!&rf=viewer_4)
@@ -309,3 +296,4 @@ The ellipses shown above are the contours of a quadratic function. Also shown is
 ![12.3](http://m.qpic.cn/psb?/V12umJF70r2BEK/Xe0lnQs638Q5k.KVnEcnH1HuUBVHuVVMKHyiIRBB3YA!/b/dAsBAAAAAAAA&bo=egW0AgAAAAARF.k!&rf=viewer_4)
 
 线性回归的代价函数总是像一个碗装的弓状函数,术语叫做凸函数
+## 13、Review
