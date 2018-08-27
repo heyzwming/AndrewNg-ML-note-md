@@ -1,26 +1,27 @@
-Logistic 回归(Logistic Regression)
+## 六、Logistic Regression(Logistic回归)
 ===
 
+### Classification and Representation
 
+28、Classification
 
-## 七、Regularization
----
-### Solving the Problem of Overfitting
+29、Hypothesis Representation
 
-35、The Problem of Overfitting
+30、Decision Boundary
 
-36、Cost Function
+### Logistic Regression Model
 
-37、Regularized Linear Regression
+31、Cost Function
 
-38、Regularized Logistic Regression
+32、Simplified Cost Function and Gradient Descent
+
+33、Advanced Optimization
+
+### Multiclass Classification
+
+34、Multiclass Classification:One-vs-all
 
 ### Review
-
-
-
-
-
 
 # Classification and Representation
 
