@@ -253,9 +253,14 @@ $\theta_1:=\theta_1-\alpha * 0$
 
 ## 12、Gradient Descent For Linear Regression(线性回归的梯度下降法)
 
-**Note**: [At 6:15 "h(x) = -900 - 0.1x" should be "h(x) = 900 - 0.1x"]
 
-When specifically applied to the case of linear regression, a new form of the gradient descent equation can be derived. We can substitute our actual cost function and our actual hypothesis function and modify the equation to :
+本节，我们要将梯度下降和代价函数结合,得到线性回归的算法,它可以用直线模型来拟合数据。
+
+下图是 **梯度下降法** 和 **线性回归模型**(包括线性假设和平方差代价函数)
+
+![12.1](http://m.qpic.cn/psb?/V12umJF70r2BEK/9jMFxpwtfFuBPv7i*11Vhyd0rgU8o7zMUu4uJZ*XNhA!/b/dOAAAAAAAAAA&bo=lwXqAgAAAAARB0o!&rf=viewer_4)
+
+When specifically applied to the case(情况) of linear regression, a new form of the gradient descent equation can be derived(得到)). We can substitute(替代) our actual cost function and our actual hypothesis function and modify the equation to :
 
 repeat until convergence: {
     
@@ -264,29 +269,18 @@ $$\theta_0 := \theta_0 - \alpha \frac{1}{m} \sum_{i=1}^m ( h_\theta(x_i)-y_i ) $
 $$\theta_1 := \theta_1 - \alpha \frac{1}{m} \sum_{i=1}^m (( h_\theta(x_i)-y_i ) x_i) $$
 }
 
+求解代价函数J中的偏导项,并将结果代入原式
 
-
-where m is the size of the training set, $\theta_0$ a constant that will be changing simultaneously with $\theta_1$ and $x_{i}, y_{i}$ are values of the given training set (data).
-
-Note that we have separated out the two cases for $\theta_j$ into separate equations for $\theta_0$ and $\theta_1$ ; and that for $\theta_1$ we are multiplying $x_{i}$ at the end due to the derivative. The following is a derivation of $\frac {\partial}{\partial \theta_j}$$J(\theta)$ for a single example :
-
-
-The point of all this is that if we start with a guess for our hypothesis and then repeatedly apply these gradient descent equations, our hypothesis will become more and more accurate.
-
-So, this is simply gradient descent on the original cost function J. This method looks at every example in the entire training set on every step, and is called **batch gradient descent**. Note that, while gradient descent can be susceptible to local minima in general, the optimization problem we have posed here for linear regression has only one global, and no other local, optima; thus gradient descent always converges (assuming the learning rate α is not too large) to the global minimum. Indeed, J is a convex quadratic function. Here is an example of gradient descent as it is run to minimize a quadratic function.
-
-
-The ellipses shown above are the contours of a quadratic function. Also shown is the trajectory taken by gradient descent, which was initialized at (48,30). The x’s in the figure (joined by straight lines) mark the successive values of θ that gradient descent went through as it converged to its minimum.
-
-
-本节，我们要将梯度下降和代价函数结合,得到线性回归的算法,它可以用直线模型来拟合数据。
-下图是 梯度下降法 和 线性回归模型(包括线性假设和平方差代价函数)
-![12.1](http://m.qpic.cn/psb?/V12umJF70r2BEK/9jMFxpwtfFuBPv7i*11Vhyd0rgU8o7zMUu4uJZ*XNhA!/b/dOAAAAAAAAAA&bo=lwXqAgAAAAARB0o!&rf=viewer_4)
-求解代价函数J中的偏导项
 ![12.2](http://m.qpic.cn/psb?/V12umJF70r2BEK/XVWfx6Elw4VOQnlg64E3KliQFN.FW*2AApMiDDXm87Q!/b/dPQAAAAAAAAA&bo=sQXBAgAAAAARF1c!&rf=viewer_4)
 
 把他们代回梯度下降算法，这里是回归的梯度下降法
+
 ![12.3](http://m.qpic.cn/psb?/V12umJF70r2BEK/Xe0lnQs638Q5k.KVnEcnH1HuUBVHuVVMKHyiIRBB3YA!/b/dAsBAAAAAAAA&bo=egW0AgAAAAARF.k!&rf=viewer_4)
+
+The point of all this is that if we start with a guess for our hypothesis and then repeatedly apply these gradient descent equations, our hypothesis will become more and more accurate.
+
+
+So, this is simply gradient descent on the original cost function J. This method looks at every example in the entire training set on every step, and is called **batch gradient descent**(批量梯度下降法). Note that, while gradient descent can be susceptible to local minima in general, the optimization problem we have posed here for linear regression has only one global, and no other local, optima; thus gradient descent always converges (assuming the learning rate α is not too large) to the global minimum. Indeed, J is a convex quadratic function. Here is an example of gradient descent as it is run to minimize a quadratic function.
 
 线性回归的代价函数总是像一个碗装的弓状函数,术语叫做凸函数
 ## 13、Review
