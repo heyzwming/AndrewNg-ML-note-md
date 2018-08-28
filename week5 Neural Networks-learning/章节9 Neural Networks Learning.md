@@ -1,25 +1,26 @@
-## 九、Neural Networks:Learning
----
-### Cost Function and Backpropagation
+# 九、Neural Networks:Learning
+===
 
-46、Cost Function
+## Cost Function and Backpropagation
 
-47、Backpropagation Algorithm
+## 46、Cost Function
 
-48、Backpropagation Intuition
+## 47、Backpropagation Algorithm
 
-### Backpropagation in Practice
+## 48、Backpropagation Intuition
 
-49、Implementation Note:Unrolling Parameters
+## Backpropagation in Practice
 
-50、Gradient Checking
+## 49、Implementation Note:Unrolling Parameters
 
-51、Random Initialization
+## 50、Gradient Checking
 
-52、Putting It Together
+## 51、Random Initialization
 
-### Application of Neural Networks
+## 52、Putting It Together
 
-53、Autonomous Driving
+## Application of Neural Networks
 
-### Review
+## 53、Autonomous Driving
+
+## Review
