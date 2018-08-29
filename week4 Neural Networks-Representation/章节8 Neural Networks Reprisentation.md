@@ -301,7 +301,7 @@ $$Θ^{(1)} = \begin{bmatrix}
 
 接下来看一个实现“非运算的例子”
 
-![59.1]()
+![59.1](http://m.qpic.cn/psb?/V12umJF70r2BEK/YtnQshXtVBubUKcvKJio5jmrwr7HDVqzNbbCzP.dyDk!/b/dCEBAAAAAAAA&bo=TQPYAQAAAAARF7c!&rf=viewer_4)
 
 要实现逻辑非运算，大体思想上就是在预期而得到非结果的变量前面放一个很大的负权重。
 
@@ -311,7 +311,7 @@ $$Θ^{(1)} = \begin{bmatrix}
 
 最后来看异或运算的实现。
 
-![59.2]()
+![59.2](http://m.qpic.cn/psb?/V12umJF70r2BEK/lC8NUBHt5Y2Ud5RWi3QGGhMImLDtNjos5tfp*iPCd5U!/b/dCIBAAAAAAAA&bo=PwPtAQAAAAARF*A!&rf=viewer_4)
 
 我们需要一个非线性的决策边界来分开正样本和负样本。
 
@@ -319,7 +319,7 @@ $$Θ^{(1)} = \begin{bmatrix}
 
 当$x_1和x_2$都为0或1时$h_\Theta(x)$ 为 1.
 
-![59.3]()
+![59.3](http://m.qpic.cn/psb?/V12umJF70r2BEK/Hqa0I8VdkfFAsyAt86UiMs3MukaaIgJdlFesaZUwLwc!/b/dCIBAAAAAAAA&bo=MgPPAQAAAAARF98!&rf=viewer_4)
 
 当网络拥有许多层,在第二层重有一些关于输入的相对简单的函数,第三层又在此基础上计算更加复杂的方程,再往后计算的函数越来越复杂
 
@@ -330,7 +330,7 @@ $$Θ^{(1)} = \begin{bmatrix}
 
 例如下面的例子，要识别出四种交通工具和行人，我们需要建立一个由四个输出单元的神经网络,这个神经网络的输出将是一个四维向量,然后用四个输出单元判断图片是否是某个物体。
 
-![60.1]()
+![60.1](http://m.qpic.cn/psb?/V12umJF70r2BEK/SOm3ceSZadRYEB3M8GQNUlJat49kyCZqOYMz9uu5XyM!/b/dCIBAAAAAAAA&bo=OAPRAQAAAAARF8s!&rf=viewer_4)
 
 对每一个类型拟合出一个假设函数：
 
