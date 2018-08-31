@@ -1,20 +1,21 @@
-## 十二、Support Vector Machines
----
-### Large Margin Classification
+十二、Support Vector Machines
+===
 
-66、Optimization Objective
+## Large Margin Classification
 
-67、Large Margin Intuition
+## 12.1 Optimization Objective()
 
-68、Mathematics Behind Large Margin Classification
+## 12.2 Large Margin Intuition(大间隔的直观理解)
+
+## 12.3 Mathematics Behind Large Margin Classification()
 
 
 ### Kernels
 
-69、Kernels Ⅰ
+## 12.4 Kernels Ⅰ()
 
-70、Kernels Ⅱ
+## 12.5 Kernels Ⅱ()
 
-### SVMs in Practice
+## 12.6 SVMs in Practice()
 
 ### Review

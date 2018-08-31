@@ -1,19 +1,20 @@
-## 十一、Machine Learning System Design
----
-### Building a Spam Classifier
+十一、Machine Learning System Design
+===
 
-61、Prioritizing What to Work On
+## Building a Spam Classifier
 
-62、Error Analysis
+## 11.1 Prioritizing What to Work On(确定执行的优先级)
+
+## 11.2 Error Analysis(误差分析)
 
 ### Handing Skewed Data
 
-63、Error Metrics for Skewed Classes
+## 11.3 Error Metrics for Skewed Classes(不对称性分类的误差评估)
 
-64、Trading Off Precision and Recall
+## 11.4 Trading Off Precision and Recall(精确度和召回率的权衡)
 
-### Using Large Data Sets
+## Using Large Data Sets
 
-65、Data For Machine Learning
+## 11.5 Data For Machine Learning(机器学习数据)
 
 ### Review
