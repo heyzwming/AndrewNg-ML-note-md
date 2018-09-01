@@ -2,8 +2,8 @@
 ===
 
 ## Model and Cost Function
-
-## 6、Model Representation(模型描述)
+---
+## 2.1、Model Representation(模型描述)
 
 回归:将变量映射到某一个连续函数上，并预测实值输出。
 
@@ -35,32 +35,31 @@ $(x^{(i)} , y^{(i)})$ = 第$i$个训练示例
 
 ![6.2](http://m.qpic.cn/psb?/V12umJF70r2BEK/*ssrGbJhFGJCR0xMuxqlXZNyH.p.tXpTg3dWkqjX30o!/b/dIABAAAAAAAA&bo=NgcABAAAAAARFxU!&rf=viewer_4)
 
+为了更正式和清晰地描述监督学习问题，我们的目标是给定一个训练集，来训练学习出一个函数$h(x)$:$X → Y$,使得$h(x)$成为一个非常好的预测者并能预测出良好的与实际值相一致的输出值。
 
-> To describe the supervised learning problem slightly more formally, our goal is, **given a training set**, to **learn a function** $h$ : $X → Y$ so that h(x) is a “good” predictor for the corresponding(一致的) value of $y$.
-> 
->  For historical reasons, this function $h$ is called a hypothesis(假设). Seen pictorially, the process is therefore like this:
->
+出于历史原因，这个函数$h$被称为假设(hypothesis)。
+
 > When the target variable that we’re trying to predict is continuous, such as in our housing example, we call the learning problem a regression problem. When y can take on only a small number of discrete values (such as if, given the living area, we wanted to predict if a dwelling is a house or an apartment, say), we call it a classification problem.
 
-如果我们要预测的目标变量是连续的，我们叫这类学习问题为回归问题，如果要预测的目标变量是连续的，我们叫这类学习问题为分类问题。
+如果我们要预测的**目标变量是连续的**，我们叫这类学习问题为**回归问题**，如果要预测的**目标变量是离散的**，我们叫这类学习问题为**分类问题**。
 
 如何给训练集下定义，先来看一下监督学习算法是怎么工作的.
 
-算法的任务是 输出一个函数，用小写字母$h$表示,$h$表示假设(hypothesis)函数,这个假设函数的作用是把房子的大小作为输入变量$x$值,并输出想应房子的预测$y$值。
-
-接下来人们的问题变成了**如何表示假设函数**
+算法的任务是**通过学习算法得到一个函数**，用小写字母$h$表示,$h$表示假设(hypothesis)函数,这个假设函数的作用是把房子的大小作为输入变量$x$值,并输出想应房子的预测$y$值。
 
 假设函数$h$就是我们需要的这个拟合函数。
 
-![6.3](http://m.qpic.cn/psb?/V12umJF70r2BEK/h0A6gdlaZzTGT3IvEPpZHyFSAihJUIvzfNCyPbnxvl8!/b/dIUBAAAAAAAA&bo=Swf8AwAAAAARF5M!&rf=viewer_4)
+接下来人们的问题变成了**如何表示假设函数**。
 
+![6.3](http://m.qpic.cn/psb?/V12umJF70r2BEK/h0A6gdlaZzTGT3IvEPpZHyFSAihJUIvzfNCyPbnxvl8!/b/dIUBAAAAAAAA&bo=Swf8AwAAAAARF5M!&rf=viewer_4)
 
 $$h_θ(x)=θ_0+θ_1*x$$            (1.1)
 其中h是hypothesis（假设）的意思，当然，这个词在机器学习的当前情况下并不是特别准确。θ是参数，我们要做的是通过训练使得θ的表现效果更好。
+
 这种模型被称为线性回归/单变量线性回归(Univariate linear regression)。
 
 
-## 7、Cost Function(代价函数)
+## 2.2、Cost Function(代价函数)
 
 > We can measure the accuracy(精度) of our hypothesis function by using a cost function.
 > 
@@ -94,7 +93,7 @@ $$ J(θ_0 ,θ_1)= \frac{1}{2m} \sum_{i=1}^{m}(h_\theta(x_i)-y_i)^2  $$
 ![7.3](http://m.qpic.cn/psb?/V12umJF70r2BEK/XbJqwpVJTFTQMKOLdprtzZVqbY7VUq.ovRVREXtUNx4!/b/dPQAAAAAAAAA&bo=LAcfBAAAAAARFxA!&rf=viewer_4)
 
 
-## 8、Cost Function-Intuition Ⅰ(代价函数Ⅰ)
+## 2.3、Cost Function-Intuition Ⅰ(代价函数Ⅰ)
 
 > If we try to think of it in visual terms(视觉层面), our training data set is scattered(散乱的) on the x-y plane. We are trying to make a straight line $h_\theta(x)$ which passes through these scattered data points.
 
@@ -132,7 +131,7 @@ Thus as a goal, we should try to minimize the cost function. In this case, $\the
 对于每一个θ，都可以得到一个不同的$J(\theta)$的值，也对应了一个不同的假设函数,对应左侧一条不同的直线和拟合程度。
 
 
-## 9、Cost Function-Intuition Ⅱ(代价函数Ⅱ)
+## 2.4、Cost Function-Intuition Ⅱ(代价函数Ⅱ)
 
 A contour plot(等值线图) is a graph that contains many contour lines. A contour line of a two variable function has a constant value(常数值) at all points of the same line. An example of such a graph is the one to the right below.
 
@@ -165,7 +164,7 @@ The graph above minimizes the cost function as much as possible and consequently
 ## Parameter Learning(参数学习)
 
 
-## 10、Gradient Descent(梯度下降)
+##2.5、Gradient Descent(梯度下降)
 
 > So we have our hypothesis function and we have a way of measuring how well it fits into the data. Now we need to estimate(估计) the parameters in the hypothesis function. That's where gradient descent comes in.
 
@@ -205,7 +204,7 @@ $α$ 表示 learning rate 即梯度下降的速率\多大的幅度更新参数$\
 
 实现 梯度下降算法的微妙之处 是 ,对于这个表达式(更新方程)，你需要同时更新(simultaneously update)$\theta_0$ 和 $\theta_1$,即$\theta_0$更新为$\theta_0$减去某项，$\theta_1$同理,而不是像Incorrect中的这样，因为会改变代价函数J的值，导致生成的temp1出错。
 
-## 11、Gradient Descent Intuition(梯度下降的直觉)
+## 2.6、Gradient Descent Intuition(梯度下降的直觉)
 
 
 先看下上节课的这个更新表达式
@@ -251,7 +250,7 @@ $\theta_1:=\theta_1-\alpha * 0$
 
 ![11.5](http://m.qpic.cn/psb?/V12umJF70r2BEK/JiZJr.gdHJZJHjqVgvM*kVNNXiYDfKo8n3.l.u98iYA!/b/dPQAAAAAAAAA&bo=cQUQAwAAAAARF0c!&rf=viewer_4)
 
-## 12、Gradient Descent For Linear Regression(线性回归的梯度下降法)
+## 2.7、Gradient Descent For Linear Regression(线性回归的梯度下降法)
 
 
 本节，我们要将梯度下降和代价函数结合,得到线性回归的算法,它可以用直线模型来拟合数据。
@@ -283,4 +282,4 @@ The point of all this is that if we start with a guess for our hypothesis and th
 So, this is simply gradient descent on the original cost function J. This method looks at every example in the entire training set on every step, and is called **batch gradient descent**(批量梯度下降法). Note that, while gradient descent can be susceptible to local minima in general, the optimization problem we have posed here for linear regression has only one global, and no other local, optima; thus gradient descent always converges (assuming the learning rate α is not too large) to the global minimum. Indeed, J is a convex quadratic function. Here is an example of gradient descent as it is run to minimize a quadratic function.
 
 线性回归的代价函数总是像一个碗装的弓状函数,术语叫做凸函数
-## 13、Review
+## 2.8、Review
