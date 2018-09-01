@@ -65,9 +65,8 @@ $$h_θ(x)=θ_0+θ_1*x$$            (1.1)
 > 
 >  This takes an average difference (actually a fancier version of an average) of all the results of the hypothesis with inputs from x's and the actual output y's.
 
-本节中我们将定义代价函数的概念，这有助于我们弄清楚如何把最有可能的直线与我们的数据相拟合.这里的代价函数是通过计算假设函数预测的y值和实际值之间的差距，输出的y是假设函数$h$的精度/误差。
-
-
+本节中我们将定义代价函数的概念，这有助于我们弄清楚如何把最有可能的直线与我们的数据相拟合.  
+这里的代价函数是计算假设函数预测的y值和实际值之间的差距，输出的y是假设函数$h$的精度/误差。
 
 在这个假设函数 $h_\theta(x)=\theta_0+\theta_1x$中，$\theta_0$ 和 $\theta_1$ 我们把他们称为**模型参数**，我们要做的就是如何选择这两个参数值$\theta_0$ 和 $\theta_1$.
 
@@ -88,24 +87,28 @@ $$ J(θ_0 ,θ_1)= \frac{1}{2m} \sum_{i=1}^{m}(h_\theta(x_i)-y_i)^2  $$
 
 > This function is otherwise called the "Squared error function"(平方误差函数), or "Mean squared error"(均方误差). The mean is halved(均分) $(\frac{1}{2})$ as a convenience for the computation of the gradient descent(便于计算梯度下降), as the derivative term of the square function will cancel out the $\frac{1}{2}$ term( $\frac{1}{2}$会在求导的时候被消去 ). 
 
-当代价函数$J$最小的时候(​minimize  $J(\theta_0, \theta_1)$)，即找到了对于当前训练集来说拟合度最高的函数h。
+当代价函数$J$最小的时候(​minimize  $J(\theta_0, \theta_1)$)，即找到了对于当前训练集来说拟合度最高的函数$h$所对应的参数$\theta$。
 
 ![7.3](http://m.qpic.cn/psb?/V12umJF70r2BEK/XbJqwpVJTFTQMKOLdprtzZVqbY7VUq.ovRVREXtUNx4!/b/dPQAAAAAAAAA&bo=LAcfBAAAAAARFxA!&rf=viewer_4)
+
+我们把求 与真实数据拟合度最高 效果最优的假设函数$h$转化成求 当 代价函数的最小值 和最小时所对应的参数$\theta$的值。
 
 
 ## 2.3、Cost Function-Intuition Ⅰ(代价函数Ⅰ)
 
 > If we try to think of it in visual terms(视觉层面), our training data set is scattered(散乱的) on the x-y plane. We are trying to make a straight line $h_\theta(x)$ which passes through these scattered data points.
 
-回顾上节,并对假设函数$h$进行简化。
+回顾上节,并对假设函数$h$进行简化，我们将两个参数$\theta_0和\theta_1$简化为一个$\theta_1$。
+
+此时的$h_\theta(x^{(i)}) = \theta_1x^{(i)}$
 
 ![8.1](http://m.qpic.cn/psb?/V12umJF70r2BEK/J9h77OYuMvj2nFjKYSL1X0WvOPqtmTmbNkSZhbu8Fgk!/b/dNoAAAAAAAAA&bo=Ege9AwAAAAARB5s!&rf=viewer_4)
 
-Our objective is to get the best possible line. The best possible line will be such so that the average squared vertical distances of the scattered points from the line will be the least(散点与直线的平均垂直距离的平方最小。). Ideally(理想地), the line should pass through all the points of our training data set. In such a case, the value of $J(\theta_0, \theta_1)$ will be 0. The following example shows the ideal situation where we have a cost function of 0.
+> Our objective is to get the best possible line. The best possible line will be such so that the average squared vertical distances of the scattered points from the line will be the least(散点与直线的平均垂直距离的平方最小。). Ideally(理想地), the line should pass through all the points of our training data set. In such a case, the value of $J(\theta_0, \theta_1)$ will be 0. The following example shows the ideal situation where we have a cost function of 0.
 
 
 
-比较以下假设函数h和代价函数J
+比较以下假设函数$h$和代价函数$J$  
 画出他们的图，以便更好地理解
 
 When $\theta_1$ = 1 we get a slope of 1 which goes through every single data point in our model. 
@@ -133,22 +136,31 @@ Thus as a goal, we should try to minimize the cost function. In this case, $\the
 
 ## 2.4、Cost Function-Intuition Ⅱ(代价函数Ⅱ)
 
-A contour plot(等值线图) is a graph that contains many contour lines. A contour line of a two variable function has a constant value(常数值) at all points of the same line. An example of such a graph is the one to the right below.
+> A contour plot(等值线图) is a graph that contains many contour lines. A contour line of a two variable function has a constant value(常数值) at all points of the same line. An example of such a graph is the one to the right below.
+
+我们的假设函数与代价函数：
 
 ![9.1](http://m.qpic.cn/psb?/V12umJF70r2BEK/nLM.TKYWs0Ue9TQFUe4eOs9v*5iC.QYpX1B6qzs7QHc!/b/dN8AAAAAAAAA&bo=sgbhAgAAAAARB2c!&rf=viewer_4)
 
-我们通过假设函数h和代价函数J来理解代价函数。
+我们通过假设函数h和代价函数$J$来理解代价函数。
 
-因为在本节中的代价函数J有两个变量θ_0和θ_1，所以在平面上无法得到J的图形。
 ![9.2](http://m.qpic.cn/psb?/V12umJF70r2BEK/q0VkyJ.2Yw8xEMQGhFr2A5rBzqy2IIIQMxgk139n1tQ!/b/dPQAAAAAAAAA&bo=VgcQBAAAAAARF2U!&rf=viewer_4)
+
+因为在本节中的代价函数$J$有两个变量$θ_0$和$θ_1$，所以在平面上无法得到$J$的图形。
+
 ![9.3](http://m.qpic.cn/psb?/V12umJF70r2BEK/WEG8jhan61YQTVb.czTMzHfAYBB2Vqp2qkWGXgR5FyQ!/b/dAsBAAAAAAAA&bo=aAbbAwAAAAARF5Y!&rf=viewer_4)
 
-但是在下面我们会用等高线来展示这些曲面。
+但是在下面我们会将上面的这个三维凸函数图像压缩转变为等高线来展示这些曲面。
 
-Taking any color and going along the 'circle', one would expect to get the same value of the cost function. 
+> Taking any color and going along the 'circle', one would expect to get the same value of the cost function. 
 
-其中的轴为θ_0和θ_1每一个椭圆展现了一系列$J(\Theta_0, \Theta_1)$值相等的点
-对于我们研究的单变量线性回归而言，J函数关于θ的等高线图像大致如下：
+左图是假设函数$h_\theta(x)$，右图是代价函数$J(\theta)$。
+
+左图中的横轴和纵轴的$x_1$$x_2$是为了画出这些数据集而非假设函数图像。而模型线$h(x)$只是为了体现假设函数与数据集的拟合度。
+
+其中的轴为$θ_0$和$θ_1$，每一个椭圆展现了一系列$J(\theta_0, \theta_1)$值相等的点
+对于我们研究的单变量线性回归而言，$J$函数关于$θ$的等高线图像大致如下：
+
 ![9.4](http://m.qpic.cn/psb?/V12umJF70r2BEK/eT4eAgl87HazwFobDNZZqR3foUYno8g9vLibsAITPN4!/b/dAsBAAAAAAAA&bo=RAcBBAAAAAARF2Y!&rf=viewer_4)
 
 When $\theta_0$ = 360 and $\Theta_1$ = 0,the value of $J(\theta_0, \theta_1)$ in the contour plot gets closer to the center thus reducing the cost function error. Now giving our hypothesis function a slightly positive slope results in a better fit of the data.
@@ -159,7 +171,7 @@ The graph above minimizes the cost function as much as possible and consequently
 
 ![9.6](http://m.qpic.cn/psb?/V12umJF70r2BEK/*KaPz8aNu*8U2opDTNqUJo006NODfBB9bywtCk1OjAY!/b/dIUBAAAAAAAA&bo=7wZeAwAAAAARF5Q!&rf=viewer_4)
 
-当我们找到了这些同心椭圆的中心点时，就找到了J函数的最小值，此时拟合度更好。
+当我们找到了这些同心椭圆的中心点时，就找到了J函数的最小值，此时拟合度最好。
 
 ## Parameter Learning(参数学习)
 
@@ -168,33 +180,36 @@ The graph above minimizes the cost function as much as possible and consequently
 
 > So we have our hypothesis function and we have a way of measuring how well it fits into the data. Now we need to estimate(估计) the parameters in the hypothesis function. That's where gradient descent comes in.
 
-> 梯度下降算法可以应用于更一般的($\theta_0 -> \theta_n$)，但为了简便符号，我们只使用 $\theta_0$ 和 $\theta_1$
+梯度下降算法可以应用于更一般的情况($\theta_0 -> \theta_n$)，但为了简便符号，我们只使用 $\theta_0$ 和 $\theta_1$
 
-梯度下降算法：我们先初始化$\theta_0$和 $\theta_1$为0,或者随意从某个($\theta_0$和 $\theta_1$)出发，然后不断尝试梯度地改变$\theta_0$和 $\theta_1$，来减小代价函数$J$的值，逐步逼近代价函数$J$的最小值。
+梯度下降算法：我们先初始化$\theta_0$和 $\theta_1$为0,或者随意从某个($\theta_0$和 $\theta_1$)出发，然后不断尝试梯度地改变、更新$\theta_0$和 $\theta_1$，来减小代价函数$J$的值，逐步逼近代价函数$J$的最小值。
 
 ![10.1](http://m.qpic.cn/psb?/V12umJF70r2BEK/eCDTH4rulqnrMeOCRiMehVPzskoUaGrOXO0u*M.kOjU!/b/dIABAAAAAAAA&bo=tAbAAwAAAAARB0E!&rf=viewer_4)
 
 来看一个例子，假设我们随意初始化了一个值，我们站在这个图的某个高点，环顾四周，找到一条下降最快的路线，直到收敛至局部最低点。
 
-> 梯度下降有个有趣的特点，第一次运行梯度下降法时，如果起点向右一点，梯度下降算法会得到一个完全不同的局部最优解。
+梯度下降有个有趣的特点，第一次运行梯度下降法时，如果起点向右一点，梯度下降算法会得到一个完全不同的局部最优解。
 
-The way we do this is by taking the derivative(求导) (the tangential line(切线) to a function) of our cost function. The slope(斜率)) of the tangent is the derivative at that point and it will give us a direction to move towards. We make steps down the cost function in the direction with the steepest(最陡的) descent. The size of each step is determined by the parameter $α$, which is called the learning rate.
+> The way we do this is by taking the derivative(求导) (the tangential line(切线) to a function) of our cost function. The slope(斜率)) of the tangent is the derivative at that point and it will give us a direction to move towards. We make steps down the cost function in the direction with the steepest(最陡的) descent. The size of each step is determined by the parameter $α$, which is called the learning rate.
+
+我们通过对我们的代价函数求导(函数的切线)的方式来做这件事情，切线的斜率是函数在这一点上的导数，这个斜率会给我们一个方向/走向，我们要沿着代价函数梯度下降**最陡、最快**的方向一步一步下降。每一步的大小被称为参数$\alpha$，也叫**学习速率(learning rate)**。
 
 ![10.2](http://m.qpic.cn/psb?/V12umJF70r2BEK/vxOK6zUV4j*XGUh*fCsHLTuvoS9uvm*ldUrgrDMxr.I!/b/dA0BAAAAAAAA&bo=AAY8AwAAAAARFxk!&rf=viewer_4)
 ![10.3](http://m.qpic.cn/psb?/V12umJF70r2BEK/V4ou0V6gS6bi9D4abcUxbJY4r.zcmIx.YT4ZgbyzWIg!/b/dOAAAAAAAAAA&bo=9wUHAwAAAAARF9Y!&rf=viewer_4)
 
-For example, the distance between each 'star' in the graph above represents a step determined by our parameter α. A smaller α would result in a smaller step and a larger α results in a larger step. The direction in which the step is taken is determined by the partial derivative of $J(\theta_0,\theta_1)$. Depending on where one starts on the graph, one could end up at different points. The image above shows us two different starting points that end up in two different places.
+> For example, the distance between each 'star' in the graph above represents a step determined by our parameter α. A smaller α would result in a smaller step and a larger α results in a larger step. The direction in which the step is taken is determined by the partial derivative of $J(\theta_0,\theta_1)$. Depending on where one starts on the graph, one could end up at different points. The image above shows us two different starting points that end up in two different places.
+
+例如每一个“星星”之间的距离取决于我们的参数$\alpha$，一个较小的$\alpha$将导致一个更小的步长，步进的方向则由$J(\theta_0,\theta_1)$的偏导数决定。
+
+在图上的不同地方开始，有可能会导致在不同的点到达局部最小值。上面的图显示了两个不同的起点最终到达了两个不同的终点。
 
 接下来看下算法的原理
 
-repeat until convergence:
+repeat until convergence(收敛):
 
 $$\theta_j := \theta_j - \alpha \frac{\partial}{\partial \theta_j} J(\theta_0, \theta_1)$$
 
-where j=0,1 represents the feature index number.
-
-At each iteration j, one should simultaneously update the parameters $\Theta_1$, $\Theta_2$,...,$\Theta_n$. Updating a specific parameter prior to calculating another one on the $j^{(th)}$ iteration would yield to a wrong implementation.
-
+where $j=0,1$ represents the feature index number.
 
 ![算法原理10.4](http://m.qpic.cn/psb?/V12umJF70r2BEK/HVJGCpuZJIewxFJ4sjD0L4USLZhvQabMwj4L*.MvfhM!/b/dPQAAAAAAAAA&bo=TQcjBAAAAAARF00!&rf=viewer_4)
 
@@ -204,7 +219,7 @@ $α$ 表示 learning rate 即梯度下降的速率\多大的幅度更新参数$\
 
 实现 梯度下降算法的微妙之处 是 ,对于这个表达式(更新方程)，你需要同时更新(simultaneously update)$\theta_0$ 和 $\theta_1$,即$\theta_0$更新为$\theta_0$减去某项，$\theta_1$同理,而不是像Incorrect中的这样，因为会改变代价函数J的值，导致生成的temp1出错。
 
-## 2.6、Gradient Descent Intuition(梯度下降的直觉)
+## 2.6、Gradient Descent Intuition(梯度下降的直观理解)
 
 
 先看下上节课的这个更新表达式
@@ -213,8 +228,7 @@ Repeat until convergence:
 
 $$\theta_1:=\theta_1-\alpha \frac{d}{d\theta_1} J(\theta_1)$$
 
-Regardless of the slope's sign for $\frac{d}{d\theta_1} J(\theta_1)$, $\theta_1$ eventually converges to its minimum value. 
-
+不管 $\frac{d}{d\theta_1} J(\theta_1)$的斜率是多少, $\theta_1$ 最终会收敛到它的最小值。 
 
 ![11.1更新表达式](http://m.qpic.cn/psb?/V12umJF70r2BEK/z5vuB1.2jpp32YLo9E1ODUSJWZ6M7yRZKNG1YeovF38!/b/dA0BAAAAAAAA&bo=KAYDAwAAAAARBx4!&rf=viewer_4)
 
@@ -283,3 +297,5 @@ So, this is simply gradient descent on the original cost function J. This method
 
 线性回归的代价函数总是像一个碗装的弓状函数,术语叫做凸函数
 ## 2.8、Review
+
+![2](http://a3.qpic.cn/psb?/V12umJF70r2BEK/4HMRCf82N81VjL8DRjyrO0j.**uP5Q3JvUCTD*zVxHc!/b/dN4AAAAAAAAA&ek=1&kp=1&pt=0&bo=Mgc4BAAAAAARJxk!&tl=3&vuin=904260897&tm=1535806800&sce=60-2-2&rf=viewer_4)
