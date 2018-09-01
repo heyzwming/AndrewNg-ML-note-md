@@ -13,11 +13,11 @@
     We are going to start by covering linear regression with one variable. Linear regression predicts a real-valued output based on an input value. We discuss the application of linear regression to housing price prediction, present the notion of a cost function, and introduce the gradient descent method for learning.
 
 
-## 1、Welcome (欢迎参加《机器学习》课程) 
+## 1.1、Welcome (欢迎参加《机器学习》课程) 
 
 pass
 
-## 2、What is Machine learning (什么是机器学习?)
+## 1.2、What is Machine learning (什么是机器学习?)
 
 Two definitions of Machine Learning are offered. 
 
@@ -60,7 +60,7 @@ In general, any machine learning problem can be assigned to one of two broad cla
 
 
 
-## 3、Supervised Learning (监督学习)
+## 1.3、Supervised Learning (监督学习)
 
 > In supervised learning, we are given a data set and **already know what our correct output should look like**, having the idea that there is a relationship between the input and the output.
 
@@ -139,7 +139,7 @@ Should you treat these as classification or as regression problems?
 
 ---
 
-## 4、Unsupervised Learning
+## 1.4、Unsupervised Learning
 
 > Unsupervised learning allows us to approach(处理) problems **with little or no idea** what our results should look like. We can derive(得到) structure from data where we don't necessarily know the effect of the variables.
 
