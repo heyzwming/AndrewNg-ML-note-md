@@ -1,15 +1,16 @@
-## 十三、Unsupervised Learning
+十三、Unsupervised Learning(无监督学习)
+===
+## Clustering(聚类)
 ---
-### Clustering
 
-Unsupervised Learning:Introduction
+## 13.1、 Unsupervised Learning:Introduction(无监督学习：介绍)
 
-K-Means Algorithm
+## 13.2、 K-Means Algorithm(K-Means 算法)
 
-Optimization Objective
+## 13.3、 Optimization Objective(优化目标)
 
-Random Initialization
+## 13.4、 Random Initialization(随机初始化)
 
-Choosing the Number of Clusters
+## 13.5、 Choosing the Number of Clusters(选取聚类数量)
 
 ### Review

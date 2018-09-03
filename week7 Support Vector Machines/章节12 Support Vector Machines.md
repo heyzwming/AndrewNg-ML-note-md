@@ -1,4 +1,4 @@
-十二、Support Vector Machines
+十二、Support Vector Machines(支持向量机)
 ===
 
 ## Large Margin Classification
