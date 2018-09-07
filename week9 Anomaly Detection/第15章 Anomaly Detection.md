@@ -74,7 +74,7 @@
 
 高斯分布 有两个参数 一个是均值 我们记作$μ$ 另一个是方差我们记作$σ^2$
 
-![1]()
+![15.2.1](http://m.qpic.cn/psb?/V12umJF70r2BEK/60jS1IC9Ay29xLg.rSIkBj7Wj*K0W5h6OPwJLaZ0fS8!/b/dOAAAAAAAAAA&bo=awPfAQAAAAARF5Y!&rf=viewer_4)
 
 如果我们将高斯分布 的概率密度函数绘制出来 它看起来将是这样一个钟形的曲线 大家之前可能就见过 
 
@@ -97,7 +97,7 @@ $$p(x|μ,σ^2) = \frac{1}{ (2\pi)^{\frac{1}{2}} \sigma} exp(-\frac{(x-μ)^2}{2\s
 
 让我们看几个高斯分布的图像 
 
-![2]()
+![15.2.2](http://m.qpic.cn/psb?/V12umJF70r2BEK/PS6QDR7IvquZ*z1VKLv7jpsEjhMJoFZZ*EP*pY3XZn4!/b/dPQAAAAAAAAA&bo=YwPhAQAAAAARF6A!&rf=viewer_4)
 
 如果μ取0 σ取1 那么这将对应一个以0为中心的高斯分布 而高斯分布的宽度 由标准差σ决定 
 
@@ -106,7 +106,7 @@ $$p(x|μ,σ^2) = \frac{1}{ (2\pi)^{\frac{1}{2}} \sigma} exp(-\frac{(x-μ)^2}{2\s
 
 接下来 让我们来看参数估计问题 
 
-![3]()
+![15.2.3](http://a3.qpic.cn/psb?/V12umJF70r2BEK/ZUbDIzl6O*WVTKmv*SMvSfSVJwQPIfzfvfPktOtDyKU!/b/dN4AAAAAAAAA&ek=1&kp=1&pt=0&bo=nQX2AgAAAAARF0w!&tl=3&vuin=904260897&tm=1536289200&sce=60-2-2&rf=viewer_4)
 
 那么 什么是参数估计问题？ 假设我们有一个有m个样本的数据集 从$x^{(1)}$到$x^{(m)}$ 假设他们都是实数 在这幅图里 我画出了整个数据集 图中的横轴 是x轴 我的样本x取值分布广泛 我就将它们画在这里 而参数估计问题就是 假设我猜测这些样本 来自一个高斯分布的总体 每一个样本xi服从某个分布 因此 我猜测这里的每个样本服从正态分布或者高斯分布 它有两个参数μ和σ平方 然而我不知道这些参数的值是多少 
 
@@ -131,6 +131,8 @@ $$\sigma^2 = \frac{1}{m}\sum^m_{i=1}(x^{(i)}-μ)^2$$
 在极大似然估计(maximum likelihood estimation)里的估计 实际就是对μ和σ^2 的极大似然估计
 
 如何估计高斯分布中的参数μ和σ平方 只要你有一个训练集 如果你猜测它来自一个高斯分布 你就可以估计出它的参数值μ和σ平方 
+
+
 
 ## 15.3、 Algorithm(算法)
 
