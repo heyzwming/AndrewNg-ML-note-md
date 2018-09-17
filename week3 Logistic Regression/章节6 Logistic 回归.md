@@ -27,9 +27,9 @@
 
 # Classification and Representation
 
-## 课时42  分类(Classification)  08:08
+## 课时42  分类(Classification)
  
-预测值是离散值情况下的分类问题
+预测值是离散值情况下的分类问题  
 我们从预测值只有0、1两类的分类问题入手。
 
 ![42.1](http://m.qpic.cn/psb?/V12umJF70r2BEK/DxzpST2fKpFyUpkmxHHkVAhrjl7YpoC8yzUSfA7escw!/b/dPQAAAAAAAAA&bo=CwRIAgAAAAARB3U!&rf=viewer_4)
@@ -38,16 +38,17 @@
 
 ![42.2](http://m.qpic.cn/psb?/V12umJF70r2BEK/xnpNGC0VSqldkNY0Ucw0ZKZDgjyOaG84oZ6wiRliUik!/b/dIUBAAAAAAAA&bo=NgRuAgAAAAARF34!&rf=viewer_4)
 
-对于分类问题，y的值是离散的$0$或1，如果使用线性回归，假设的输出值会远大于1或者小于$0$，即使所有的训练样本的标签都是y=0或1
+对于分类问题，y的值是离散的$0$或$1$，如果使用线性回归，假设的输出值会远大于1或者小于$0$，即使所有的训练样本的标签都是$y=0$或$1$
 
-我们要使用一种新的算法叫做Logistac Regression(应用于分类问题)，特点在于算法的输出或者说预测值一直介于0和1之间
+我们要使用一种新的算法叫做Logistac Regression(逻辑回归，应用于分类问题)，特点在于算法的预测值的输出一直介于0和1之间
 
-## 课时43  假设陈述(Hypothesis Representation)  07:24
-logistic回归 中假设函数的表示方法
+## 课时43  假设陈述(Hypothesis Representation)
+
+logistic回归中假设函数的表示方法
 
 我们希望我们的假设函数$h_\theta(x)$的输出能够在0到1之间。
 
-当我们使用线性回归的时候，假设函数是这样的$h_\theta(x) = \theta^Tx$.其中$\theta$是参数的向量，x是特征值的向量，如下。
+当我们使用线性回归的时候，假设函数是这样的$h_\theta(x) = \theta^Tx$.其中$\theta$是参数的向量，$x$是特征值的向量，如下
 
 $$
 h_\theta(x) = \left[  \theta_0  .  \theta_1 \dots \theta_n  \right]
@@ -66,15 +67,15 @@ h_\theta(x) = \left[  \theta_0  .  \theta_1 \dots \theta_n  \right]
 
 $$h_\theta(x)=\frac{1}{1+e^{-{\theta^Tx}}}$$
 
-我们要做的就是用参数θ拟合我们的数据，拿到一个训练集，我们需要给参数$θ$选定一个值，假设函数会帮我们做出预测。
+我们要做的就是用参数$θ$拟合我们的数据，拿到一个训练集，我们需要给参数$θ$选定一个值，假设函数会帮我们做出预测。
 
 ![43.1](http://m.qpic.cn/psb?/V12umJF70r2BEK/Y42BroZryYy.ZS1xFOsi23CI.rYVcdZQ9v48F*QKrKU!/b/dPQAAAAAAAAA&bo=RwRsAgAAAAARBx0!&rf=viewer_4)
 
 
 先解释下这个函数$h$输出的含义  
-当函数$h$输出一个数字，我把这个数字当成 对一个输入x，y=1的概率估计。
+当函数$h$输出一个数字，我把这个数字当成:**对于一个输入x，y=1的概率估计**。
 
-比方说$h_θ(x) = 7$的意义是 (在单特征分类问题下)对于一个特征值为x的患者y=1的概率是0.7，用数学来表示，$h_θ(x)$是 在特征值为x(此处是肿瘤的大小)和参数θ的条件下，y=1的概率p。(第0个特征是1，第1个特征是肿瘤大小)
+比方说$h_θ(x) = 0.7$的意义是 (在单特征分类问题下)对于一个特征值为$x$的患者y=1的概率是0.7，用数学来表示，$h_θ(x)$是 在特征值为x(此处是肿瘤的大小)和参数$θ$的条件下，y=1的概率$p$(第$0$个特征是1，第1个特征是肿瘤大小)
 
 假设函数$h_\theta(x)$的数学表达式是$P(y=1|x;\theta)$
 
@@ -83,13 +84,14 @@ $$h_\theta(x)=\frac{1}{1+e^{-{\theta^Tx}}}$$
 
 ## 课时44  决策界限(Decision Boundary)  14:49
 
-决策边界的概念，能帮助我们更好的理解logistic回归的假设函数在计算什么。
-事实上这个假设函数计算的是 在特征x和参数θ的条件下y=1的估计概率。
+决策边界的概念，能帮助我们更好的理解logistic回归的假设函数在计算什么。  
+事实上这个假设函数计算的是 在特征x和参数$θ$的条件下y=1的估计概率。
 
-如果这个概率>=0.5 我们预测y = 1
+如果这个概率$p$>=0.5   
+我们预测y = 1    
 否则 y = 0
 
-看到这个图像我们可以看到如果z >= 0 那么g(z) >= 0.5
+看到这个图像我们可以看到如果z >= 0 那么$g(z)$ >= 0.5
 即当$θ^Tx >= 0$.我们的假设函数就会预测y = 1
 
 ![44.1](http://m.qpic.cn/psb?/V12umJF70r2BEK/3OX1YKgf9ptwMk08udNS6CluSzOiByEQg73oUtXy4wM!/b/dD0BAAAAAAAA&bo=IQRgAgAAAAARF2c!&rf=viewer_4)
@@ -100,11 +102,11 @@ $$h_\theta(x)=\frac{1}{1+e^{-{\theta^Tx}}}$$
 
 为了拟合下图中的数据集，我们假设已经拟合好了参数$\theta$并有这么一个参数向量$θ = \begin{bmatrix}
 -3 \\ 1 \\ 1
-\end{bmatrix}$ 来更深入理解假设函数何时为1何时为0
+\end{bmatrix}$, 来更深入理解假设函数何时为1何时为0
 
 当$\theta^Tx=-3+x_1+x_2>=0$时预测y=1
 
-$x_1+x_3 = 3$作出的区别开y = 1 和y = 0范围的线就叫决策边界 
+$x_1+x_3 = 3$作出的区别开y = 1 和y = 0范围的线就叫**决策边界(decision boundary)** 
 
 ![44.2](http://m.qpic.cn/psb?/V12umJF70r2BEK/Jfu1Kz5VNOpDiVTf7wC5EX9H1xwM63mS2WGxSIpPK6I!/b/dGwBAAAAAAAA&bo=PARyAgAAAAARF2g!&rf=viewer_4)
 
@@ -113,8 +115,9 @@ $x_1+x_3 = 3$作出的区别开y = 1 和y = 0范围的线就叫决策边界
 我们添加额外的特征量$x_1^2$ 和$x_2^2$
 我们选择参数向量$θ=\begin{bmatrix}
     -1 & 0 & 0 & 1 & 1
-\end{bmatrix}$
-通过更复杂的多项式，我们可以得到更复杂的决定边界，决定边界不是训练集的属性，而是假设本身及其参数的属性，只要给定了参数向量θ，圆形的决定边界就确定了。  
+\end{bmatrix}$  
+通过更复杂的多项式，我们可以得到更复杂的决定边界，决定边界不是训练集的属性，而是假设本身及其参数的属性，只要给定了参数向量$θ$，圆形的决定边界就确定了。  
+
 我们用训练集来拟合参数θ
 
 ![44.3](http://m.qpic.cn/psb?/V12umJF70r2BEK/YTJXADnKrdjFC.FnxQTrT8bBmYOAivJcCJubimHT8FA!/b/dIUBAAAAAAAA&bo=KwRWAgAAAAARF1s!&rf=viewer_4)
@@ -129,19 +132,26 @@ $x_1+x_3 = 3$作出的区别开y = 1 和y = 0范围的线就叫决策边界
 
 ## 课时45  代价函数(Cost Function)  10:23
 
-如何拟合logistic回归模型的参数θ
+如何拟合logistic回归模型的参数$θ$
 
 定义用来拟合参数的优化目标或者叫代价函数。
 这就是logistic回归模型的拟合问题。
 
-我们有一个训练集，每一个样本都用n+1维的特征向量表示。
+我们有一个(m个训练样本的)训练集${(x^{(1)},y^{(1)}),(x^{(2)},y^{(2)}),···,(x^{(m)},y^{(m)})}$，每一个样本都用n+1维的特征向量表示。
 
-对于给定的训练集我们如何选择 或者说如何拟合 参数θ
+$$x∈\begin{bmatrix}
+  x_0 \\ x_1 \\ \dots \\ x_n
+\end{bmatrix}  \ \ \ \ \ \ \ \ \ \  
+x_0 = 1,y ∈\{0,1\} $$
+
+对于给定的训练集我们如何选择 或者说如何拟合 参数$θ$
+
 ![45.1](http://m.qpic.cn/psb?/V12umJF70r2BEK/oAxytbF8DMNSaYT7c3qo0XlMcrYMPpk3pTBwCnnkJq0!/b/dGwBAAAAAAAA&bo=LwQ8AgAAAAARByU!&rf=viewer_4)
 
-我们定义$Cost(h_\theta(x),y)$，这个代价函数的理解是这样的，它是在输出的预测值是h(x)时而实际标签是y的情况下，我们希望学习算法付出的代价。  
-但是如果我们使用这个Cost代价函数，它会变成参数$\theta$的非凸函数.  
-如何我们把$h_\theta(x) = \frac{1}{1+e^{\theta^Tx}}$代入$Cost(h_\theta(x),y)$中，再把$Cost$带入$J(\theta)$,会得到关于参数$\theta$的非凸函数。
+我们定义$Cost(h_\theta(x),y)$，这个代价函数的理解是这样的，它是在输出的预测值是h(x)时而实际标签是y的情况下，我们希望学习算法付出的代价。
+
+但是如果我们使用这个$Cost$代价函数，它会变成参数$\theta$的非凸函数.  
+如果我们把$h_\theta(x) = \frac{1}{1+e^{\theta^Tx}}$代入$Cost(h_\theta(x),y)$中，再把$Cost$带入$J(\theta)$,会得到关于参数$\theta$的非凸函数。
 
 ![45.2](http://m.qpic.cn/psb?/V12umJF70r2BEK/kwJ99dZKnG6ClPiMqFeoUFadC4hXBtqJksPxu4J7EWo!/b/dA0BAAAAAAAA&bo=HgRPAgAAAAARF3c!&rf=viewer_4)
 
@@ -232,6 +242,7 @@ Disadvantages
 * More complex
 
 调用高级算法的例子
+
 ![46.2](http://m.qpic.cn/psb?/V12umJF70r2BEK/9T4jjdDwR3Fk7K6dFK0LSB5oc.nPkzk98cZgqTnnJcg!/b/dNoAAAAAAAAA&bo=XARpAgAAAAARFxM!&rf=viewer_4)
 
 
